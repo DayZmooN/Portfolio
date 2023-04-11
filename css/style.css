@@ -1,0 +1,192 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  background-image: url(../img/image-projet\ porfolio\ –\ Figma.png);
+  overflow: hidden;
+}
+body header {
+  display: flex;
+}
+body header #logo {
+  width: 70px;
+  margin: 15px 20px;
+}
+body header #logo img {
+  width: 100%;
+}
+body header nav {
+  width: 100%;
+}
+body header nav ul {
+  height: 80px;
+  display: flex;
+  justify-content: right;
+  margin: 0 20px;
+  gap: 15px;
+  align-items: center;
+}
+body header nav ul li {
+  list-style-type: none;
+}
+body header nav ul li a {
+  font: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.7rem;
+  color: #fff;
+  text-decoration: none;
+}
+body header nav ul li a:hover {
+  color: #3c67e3;
+}
+@keyframes po {
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+body main {
+  width: 100%;
+  padding: 20px;
+}
+body main .perso {
+  width: 100%;
+}
+body main .perso .perso-container {
+  width: 100px;
+  display: inline-block;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 3px;
+}
+body main .perso .perso-container:hover {
+  border: 1px solid #fff;
+}
+body main .perso .perso-container img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+body main .perso #container-content {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  margin-left: 100px;
+}
+body main .perso #container-content .skills {
+  width: 350px;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+  border: 1px solid red;
+  text-align: center;
+  height: 100%;
+  perspective: 1000px;
+}
+body main .perso #container-content .skills .skills-container {
+  width: 100%;
+  height: 600px;
+}
+body main .perso #container-content .skills .skills-container .letter-skills {
+  display: inline-block;
+  padding: 20px;
+  width: 140px;
+  animation: po 12s ease-in-out infinite;
+  box-shadow: 4px white;
+}
+body main .perso #container-content .me {
+  width: 100%;
+  max-width: 300px;
+  height: 100%;
+  align-items: center;
+  text-align: center;
+}
+body main .perso #container-content .me:hover {
+  border: 1px solid #fff;
+}
+body main .perso #container-content .me .img-me {
+  width: 100%;
+}
+body main .perso #container-content .projet-container {
+  width: 500px;
+  height: 450px;
+  margin-top: 150px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  justify-content: center;
+  gap: 20px;
+  overflow-y: scroll;
+  padding: 10px;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+body main .perso #container-content .projet-container .projet-card {
+  gap: 30px;
+}
+body main .perso #container-content .projet-container .projet-card .card {
+  background: #191c29;
+  position: relative;
+  border-radius: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  font-size: 1.5em;
+  color: rgba(88, 199, 250, 0);
+  cursor: pointer;
+}
+body main .perso #container-content .projet-container .projet-card .card:hover {
+  color: rgb(88, 199, 250);
+  transition: color 1s;
+}
+body main .perso #container-content .projet-container .projet-card .card:hover:before, body main .perso #container-content .projet-container .projet-card .card:hover:after {
+  animation: none;
+  opacity: 0;
+}
+body main .perso #container-content .projet-container .projet-card .card::before {
+  content: "";
+  width: 104%;
+  height: 102%;
+  border-radius: 8px;
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  transition: opacity 0.5s;
+  position: absolute;
+  z-index: -1;
+  top: -1%;
+  left: -2%;
+  animation: spin 2.5s linear infinite;
+}
+body main .perso #container-content .projet-container .projet-card .card::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--card-height) / 6);
+  left: 0;
+  right: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  transform: scale(0.8);
+  background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+  opacity: 1;
+  transition: opacity 0.5s;
+  animation: spin 2.5s linear infinite;
+}
+@keyframes spin {
+  0% {
+    --rotate: 0deg;
+  }
+  75% {
+    scale: 0.97;
+  }
+  100% {
+    --rotate: 360deg;
+  }
+}
+body main .perso #container-content .projet-container .projet-card img {
+  width: 300px;
+}/*# sourceMappingURL=style.css.map */
