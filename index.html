@@ -8,8 +8,10 @@
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
 </head>
+<style>
+</style>
 
-<body>
+<body id="container-content">
     <header>
         <div id="logo">
             <img src="./img/RK.svg" alt="logo KR">
@@ -24,12 +26,16 @@
         </nav>
     </header>
     <main>
-        <section class="perso">
-            <div class="perso-container">
-                <img src="./img/5gs8eF20_2x.jpeg.gif" alt="perso image">
-            </div>
+        <div class=" big-dipper">
+            <canvas id="alkaid"></canvas>
 
+        </div>
+        <section class="perso">
             <div id="container-content">
+                <div class="perso-container">
+                    <img src="./img/5gs8eF20_2x.jpeg.gif" alt="perso image">
+                </div>
+
                 <!--mes skills-->
                 <div class="skills">
                     <!--remplacer par my tools mettre des value -->
@@ -56,6 +62,10 @@
                 </div>
                 <!--mon perso-->
                 <div class="me">
+                    <div class="my-name">
+                        <img src="./letter/name.svg" value="karim " alt="karim ">
+                        <img src="./letter/lastname.svg" value=" ryahi" alt=" ryahi">
+                    </div>
                     <img src="./img/karim.svg" alt="" class="img-me">
 
                 </div>
@@ -94,9 +104,10 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
     </main>
-
+    <script src="./js/main.js"></script>
 </body>
 
 </html>

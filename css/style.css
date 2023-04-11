@@ -8,7 +8,6 @@
 body {
   width: 100%;
   background-image: url(../img/image-projet\ porfolio\ –\ Figma.png);
-  overflow: hidden;
 }
 body header {
   display: flex;
@@ -52,9 +51,83 @@ body header nav ul li a:hover {
 body main {
   width: 100%;
   padding: 20px;
+  overflow: hidden;
+  perspective: 1000px;
+}
+body main .big-dipper {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  gap: 50px;
+  animation: sway 2s infinite ease-in-out alternate;
+}
+body main .big-dipper canvas {
+  width: 300px;
+  height: 100%;
+  cursor: pointer;
+  border-radius: 50%;
+  animation: filter-more forwards linear 4s, shrink forwards infinite 5s 3s, blink linear infinite 1.2s 3s;
+  filter: blur(var(--blur-min)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation-min));
+}
+body main .big-dipper canvas .scope {
+  width: clamp(200px, 90vmin, 1200px);
+  height: clamp(200px, 90vmin, 1200px);
+  border-radius: 50%;
+  overflow: hidden;
+}
+body main .big-dipper canvas canvas.reset {
+  animation: none;
+}
+@keyframes filter-more {
+  from {
+    filter: blur(var(--blur-min)) contrast(1) hue-rotate(var(--hue-rotation));
+  }
+  to {
+    filter: blur(var(--blur-max)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation));
+    transform: scale(0.25);
+  }
+}
+@keyframes shrink {
+  to {
+    transform: scale(0.25);
+  }
+}
+@keyframes blink {
+  28% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  32% {
+    opacity: 0.8;
+  }
+  34% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  52% {
+    opacity: 0.6;
+  }
+  from, 54%, to {
+    opacity: 1;
+  }
+}
+@keyframes sway {
+  0% {
+    transform: rotateZ(-2deg);
+  }
+  100% {
+    transform: rotateZ(2deg);
+  }
 }
 body main .perso {
   width: 100%;
+  position: relative;
 }
 body main .perso .perso-container {
   width: 100px;
@@ -81,7 +154,6 @@ body main .perso #container-content .skills {
   width: 350px;
   max-width: -moz-fit-content;
   max-width: fit-content;
-  border: 1px solid red;
   text-align: center;
   height: 100%;
   perspective: 1000px;
@@ -111,11 +183,12 @@ body main .perso #container-content .me .img-me {
   width: 100%;
 }
 body main .perso #container-content .projet-container {
-  width: 500px;
+  width: 1000px;
+  max-width: 700px;
   height: 450px;
   margin-top: 150px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   justify-content: center;
   gap: 20px;
   overflow-y: scroll;

@@ -9,7 +9,8 @@
 body {
     width: 100%;
     background-image: url(../img/image-projet\ porfolio\ –\ Figma.png);
-    overflow: hidden;
+    // overflow: hidden;
+
 
     header {
         display: flex;
@@ -64,12 +65,137 @@ body {
     }
 
     main {
+        // background-image: url(../img/image-projet\ porfolio.png);
         width: 100%;
         padding: 20px;
-        // overflow: hidden;
+        overflow: hidden;
+        perspective: 1000px;
+        // animation: rota 10.5s linear infinite;
+
+        // @keyframes rota {
+        //     0% {
+        //         transform: translateY(0);
+        //         transform: rotateY(0deg);
+
+        //     }
+
+        //     75% {
+        //         transform: rotateY(90deg);
+        //         // transform: translateZ(100px);
+        //     }
+
+        //     100% {
+        //         transform: rotateY(180deg);
+        //         // transform: translateY(20px);
+        //     }
+        // }
+        .big-dipper {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+            gap: 50px;
+            animation: sway 2s infinite ease-in-out alternate;
+
+            canvas {
+                width: 300px;
+                height: 100%;
+                cursor: pointer;
+                border-radius: 50%;
+                animation:
+                    filter-more forwards linear 4s,
+                    shrink forwards infinite 5s 3s,
+                    blink linear infinite 1.2s 3s;
+                filter:
+                    blur(var(--blur-min)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation-min));
+
+                .scope {
+                    width: clamp(200px, 90vmin, 1200px);
+                    height: clamp(200px, 90vmin, 1200px);
+                    border-radius: 50%;
+                    overflow: hidden;
+                }
+
+                canvas.reset {
+                    animation: none;
+                }
+            }
+        }
+
+        @keyframes filter-more {
+            from {
+                filter:
+                    blur(var(--blur-min)) contrast(1) hue-rotate(var(--hue-rotation));
+            }
+
+            to {
+                filter:
+                    blur(var(--blur-max)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation));
+                transform: scale(0.25);
+            }
+        }
+
+        @keyframes shrink {
+            to {
+                transform: scale(0.25);
+            }
+        }
+
+        @keyframes blink {
+            28% {
+                opacity: 1;
+            }
+
+            30% {
+                opacity: 0.9;
+            }
+
+            32% {
+                opacity: 0.8;
+            }
+
+            34% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.9;
+            }
+
+            52% {
+                opacity: 0.6;
+            }
+
+            from,
+            54%,
+            to {
+                opacity: 1;
+            }
+        }
+
+
+
+
+
+        // .tree img {
+        //     max-width: 100%;
+        // }
+
+        // /* Animation pour l'effet de balancement des arbres */
+        @keyframes sway {
+            0% {
+                transform: rotateZ(-2deg);
+            }
+
+            100% {
+                transform: rotateZ(2deg);
+            }
+        }
 
         .perso {
             width: 100%;
+            position: relative;
 
 
 
@@ -103,7 +229,7 @@ body {
                 .skills {
                     width: 350px;
                     max-width: fit-content;
-                    border: 1px solid red;
+                    // border: 1px solid red;
                     text-align: center;
                     // border: 3px solid red;
                     height: 100%;
@@ -148,12 +274,13 @@ body {
                 }
 
                 .projet-container {
-                    width: 500px;
+                    width: 1000px;
+                    max-width: 700px;
                     height: 450px;
                     // border: 1px solid yellow;
                     margin-top: 150px;
                     display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); // Utilisation de minmax pour s'assurer que les cartes ont une taille minimale de 200px et qu'elles occupent tout l'espace disponible
+                    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); // Utilisation de minmax pour s'assurer que les cartes ont une taille minimale de 200px et qu'elles occupent tout l'espace disponible
                     justify-content: center;
                     gap: 20px;
                     overflow-y: scroll;
