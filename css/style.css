@@ -6,15 +6,61 @@
 }
 
 body {
-  width: 100%;
   background-image: url(../img/image-projet\ porfolio\ –\ Figma.png);
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  transition: background-image 1.5s ease-in-out;
+  /* Répéter l'image horizontalement */
+  animation: bougerBackground 16s linear alternate infinite;
+  /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
+  /* Définissez l'animation */
+}
+@keyframes bougerBackground {
+  0% {
+    background-position: 0px 0px;
+    /* Position de départ */
+  }
+  25% {
+    background-position: 100% 1000px;
+  }
+  50% {
+    background-position: 100% 1500px;
+  }
+  100% {
+    background-position: 100% 1000px;
+    /* Position finale */
+  }
+}
+@media screen and (max-width: 900px) {
+  body {
+    overflow: auto;
+  }
 }
 body header {
   display: flex;
+  padding: 20px;
 }
 body header #logo {
+  /* padding: 20px; */
   width: 70px;
-  margin: 15px 20px;
+}
+body header #logo #rk {
+  background-color: rgba(24, 25, 31, 0);
+  color: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5019607843), 10px 1px 12px rgba(0, 0, 0, 0.5019607843), 2px 2px 10px rgba(0, 0, 0, 0.5019607843), 2px 2px 3px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+  animation: animate 33s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
+}
+body header #logo #rk {
+  animation-delay: 1.3s;
+}
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 body header #logo img {
   width: 100%;
@@ -36,57 +82,86 @@ body header nav ul li {
 body header nav ul li a {
   font: 900;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   color: #fff;
   text-decoration: none;
 }
 body header nav ul li a:hover {
   color: #3c67e3;
 }
-@keyframes po {
-  100% {
-    transform: rotateY(360deg);
-  }
+body header nav * {
+  margin: 0;
+  padding: 0;
+}
+body header nav body {
+  height: 100vh;
+  width: 100vw;
+  background: #18191f;
 }
 body main {
+  background-image: url(../img/image-projet\ porfolio.png);
   width: 100%;
-  padding: 20px;
   overflow: hidden;
   perspective: 1000px;
+  background-position: 0px 0px;
+  background-repeat: repeat;
+  transition: background-image 1.5s ease-in-out;
+  /* Répéter l'image horizontalement */
+  animation: bougerBackground 16s linear alternate infinite;
+  /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
+  /* Définissez l'animation */
+}
+@keyframes bougerBackground {
+  0% {
+    background-position: 0px 0px;
+    /* Position de départ */
+  }
+  25% {
+    background-position: 100% 1000px;
+  }
+  50% {
+    background-position: 50% 1500px;
+  }
+  100% {
+    background-position: 100% 1000px;
+    /* Position finale */
+  }
 }
 body main .big-dipper {
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 10;
   cursor: pointer;
-  gap: 50px;
-  animation: sway 2s infinite ease-in-out alternate;
+  animation: sway 200s infinite ease-in-out alternate;
+  perspective: 1000px;
 }
 body main .big-dipper canvas {
-  width: 300px;
-  height: 100%;
   cursor: pointer;
   border-radius: 50%;
-  animation: filter-more forwards linear 4s, shrink forwards infinite 5s 3s, blink linear infinite 1.2s 3s;
+  animation: filter-more forwards linear 4s, shrink forwards linear 5s 3s, blink linear infinite 1.2s 3s;
   filter: blur(var(--blur-min)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation-min));
 }
 body main .big-dipper canvas .scope {
-  width: clamp(200px, 90vmin, 1200px);
-  height: clamp(200px, 90vmin, 1200px);
+  width: clamp(500px, 90vmin, 1200px);
+  height: clamp(500px, 90vmin, 1200px);
   border-radius: 50%;
   overflow: hidden;
 }
-body main .big-dipper canvas canvas.reset {
+body main .big-dipper canvas.reset {
   animation: none;
+}
+body main .circle {
+  position: absolute;
 }
 @keyframes filter-more {
   from {
-    filter: blur(var(--blur-min)) contrast(1) hue-rotate(var(--hue-rotation));
+    transform: translate(100px);
+    filter: blur(var(--blur-min)) contrast(10) hue-rotate(var(--hue-rotation));
   }
   to {
+    transform: scale(0.15);
     filter: blur(var(--blur-max)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation));
-    transform: scale(0.25);
   }
 }
 @keyframes shrink {
@@ -120,61 +195,192 @@ body main .big-dipper canvas canvas.reset {
 @keyframes sway {
   0% {
     transform: rotateZ(-2deg);
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(5000px, 4000, 300);
+  }
+  50% {
+    transform: translate3d(200px, 200px, 200px);
   }
   100% {
+    transform: translate3d(200px, -200px, -200px);
     transform: rotateZ(2deg);
   }
 }
 body main .perso {
   width: 100%;
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .perso .loader-container {
+  overflow: hidden;
+  animation: over 4s linear forwards;
+}
+body main .perso .loader-container .ball {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(rgb(221, 130, 12), rgba(11, 11, 11, 0.532), indigo);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s linear;
+  animation: bounce 20s linear forwards infinite;
+  rotate: -360deg;
+}
+@keyframes bounce {
+  0% {
+    width: 50px;
+    height: 50px;
+    top: -70px;
+  }
+  25% {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+  }
+  35% {
+    width: 80px;
+    height: 80px;
+  }
+  45% {
+    right: 100px;
+    width: 50px;
+    height: 50px;
+  }
+  65% {
+    width: 80px;
+    height: 80px;
+    rotate: 180deg;
+  }
+  85% {
+    width: 50px;
+    height: 50px;
+  }
+  100% {
+    width: 700px;
+    height: 700px;
+  }
 }
 body main .perso .perso-container {
-  width: 100px;
-  display: inline-block;
-  height: 100px;
-  border: 1px solid black;
-  border-radius: 3px;
+  width: 100%;
+  max-width: 100px;
+  margin: auto;
+  margin-right: 20px;
+}
+@media screen and (max-width: 900px) {
+  body main .perso .perso-container {
+    width: 50px;
+  }
 }
 body main .perso .perso-container:hover {
   border: 1px solid #fff;
 }
 body main .perso .perso-container img {
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+}
+body main .perso .perso-container .container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+body main .perso .perso-container .container #perso-img,
+body main .perso .perso-container .container #linkedin,
+body main .perso .perso-container .container #github {
+  font-size: 40px;
+  background-color: rgba(24, 25, 31, 0);
+  color: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5019607843), 10px 1px 12px rgba(0, 0, 0, 0.5019607843), 2px 2px 10px rgba(0, 0, 0, 0.5019607843), 2px 2px 3px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+  padding: 11px 19px;
+  animation: animate 3s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
+}
+body main .perso .perso-container .container #twitter {
+  animation-delay: 0.3s;
+}
+body main .perso .perso-container .container #github {
+  animation-delay: 0.1s;
+}
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
+  }
 }
 body main .perso #container-content {
   display: flex;
-  justify-content: space-around;
-  position: relative;
-  margin-left: 100px;
+  overflow: hidden;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: initial;
+  margin: 0 50px;
+  justify-content: center;
+  flex-direction: row;
+}
+@media screen and (max-width: 900px) {
+  body main .perso #container-content {
+    width: 100%;
+    display: block;
+  }
 }
 body main .perso #container-content .skills {
-  width: 350px;
-  max-width: -moz-fit-content;
-  max-width: fit-content;
+  width: 100%;
+  max-width: 50%;
+  margin: 0 auto;
   text-align: center;
-  height: 100%;
   perspective: 1000px;
 }
-body main .perso #container-content .skills .skills-container {
+body main .perso #container-content .skills .letter-skills {
   width: 100%;
-  height: 600px;
+}
+@media screen and (max-width: 1200px) {
+  body main .perso #container-content .skills .letter-skills {
+    width: 140px;
+  }
+}
+body main .perso #container-content .skills .skills-container {
+  width: 95%;
 }
 body main .perso #container-content .skills .skills-container .letter-skills {
   display: inline-block;
   padding: 20px;
   width: 140px;
-  animation: po 12s ease-in-out infinite;
+  animation: po 10s ease-in-out infinite;
   box-shadow: 4px white;
 }
+@media screen and (max-width: 1200px) {
+  body main .perso #container-content .skills .skills-container .letter-skills {
+    width: 100px;
+  }
+}
+body main .perso #container-content .skills .skills-container .letter-skills .material-container {
+  width: 100;
+}
+@keyframes po {
+  0% {
+    transform: rotateY(0);
+  }
+  25% {
+    transform: rotateY(360deg);
+  }
+}
 body main .perso #container-content .me {
-  width: 100%;
-  max-width: 300px;
-  height: 100%;
+  width: 53%;
   align-items: center;
   text-align: center;
+}
+@media screen and (max-width: 900px) {
+  body main .perso #container-content .me {
+    margin: 0 auto;
+  }
 }
 body main .perso #container-content .me:hover {
   border: 1px solid #fff;
@@ -183,34 +389,43 @@ body main .perso #container-content .me .img-me {
   width: 100%;
 }
 body main .perso #container-content .projet-container {
-  width: 1000px;
-  max-width: 700px;
-  height: 450px;
-  margin-top: 150px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  justify-content: center;
-  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+  height: 550px;
   overflow-y: scroll;
-  padding: 10px;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+}
+body main .perso #container-content .projet-container::-webkit-scrollbar {
+  background-color: rgba(243, 12, 12, 0);
+  display: none;
+}
+body main .perso #container-content .projet-container::-webkit-scrollbar-corner {
+  display: none;
 }
 body main .perso #container-content .projet-container .projet-card {
+  padding: 20px;
   gap: 30px;
 }
+@media screen and (max-width: 900px) {
+  body main .perso #container-content .projet-container .projet-card {
+    gap: 40px;
+  }
+}
 body main .perso #container-content .projet-container .projet-card .card {
+  width: 400px;
   background: #191c29;
   position: relative;
   border-radius: 6px;
-  justify-content: center;
   align-items: center;
   text-align: center;
   display: flex;
-  font-size: 1.5em;
   color: rgba(88, 199, 250, 0);
   cursor: pointer;
+}
+@media screen and (max-width: 900px) {
+  body main .perso #container-content .projet-container .projet-card .card {
+    gap: 30px;
+    height: 200px;
+  }
 }
 body main .perso #container-content .projet-container .projet-card .card:hover {
   color: rgb(88, 199, 250);
@@ -261,5 +476,50 @@ body main .perso #container-content .projet-container .projet-card .card::after 
   }
 }
 body main .perso #container-content .projet-container .projet-card img {
-  width: 300px;
+  padding: 10px;
+  width: 100%;
+}
+body .modal {
+  position: absolute;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  border: 2rem solid white;
+  overflow: scroll;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  max-height: 700px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body .modal::-webkit-scrollbar {
+  background-color: rgba(243, 12, 12, 0);
+  display: none;
+}
+body .modal::-webkit-scrollbar-corner {
+  display: none;
+}
+body .modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+body .modal .modal-content img {
+  width: 100%;
+  padding: 0 50px;
+}
+body .close {
+  background-color: #f30c0c;
+  border-radius: 100%;
+  right: 100%;
+  top: 50%;
+  text-align: center;
+  position: sticky;
+  color: #d7caca;
+  font-size: 5rem;
+  cursor: pointer;
 }/*# sourceMappingURL=style.css.map */

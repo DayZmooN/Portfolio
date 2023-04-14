@@ -1,10 +1,10 @@
 const isWebkit = navigator.userAgent.match(/webkit/i)
 
 const Settings = {
-    width: 520,
-    height: 520,
+    width: 50,
+    height: 50,
     bgStyle: '#000',
-    pathStopTime: 20 * 1000,
+    pathStopTime: 20 * 10000,
     get sourceStyle() {
         return 'rgba(60, 100, 255, 0.01)'
     },
@@ -31,7 +31,7 @@ const random = (max = 1, min = 0) => {
 }
 
 const maybeNegative = (number) => {
-    return Math.random() >= .5 ? number : -number
+    return Math.random() >= 0.5 ? number : -number
 }
 
 const array = (length, mapper = noop) => {
@@ -101,33 +101,63 @@ const draw = (ctx) => {
     return requestAnimationFrame(() => {
         draw(ctx)
     })
-}
+};
 
-const init = (ctx) => {
-    ctx.fillStyle = Settings.bgStyle
-    ctx.fillRect(0, 0, Settings.width, Settings.height)
-    State.init()
-    canvas.classList.toggle('reset')
-    setTimeout(() => {
-        canvas.classList.toggle('reset')
-    }, 1000 / 60)
-}
+
 
 const canvas = document.querySelector('canvas')
 canvas.width = Settings.width
 canvas.height = Settings.height
 const ctx = canvas.getContext('2d')
+const init = (ctx) => {
+    ctx.fillStyle = Settings.bgStyle;
+    ctx.fillRect(0, 0, Settings.width, Settings.height);
+    State.init();
+    canvas.classList.add('reset'); // Ajout de la classe "reset"
+    setTimeout(() => {
+        canvas.classList.remove('reset'); // Suppression de la classe "reset" après un court laps de temps
+    }, 1000 / 60);
+};
+
+
+
 
 const resetCanvas = () => {
     ctx.clearRect(0, 0, Settings.width, Settings.height)
     init(ctx)
-}
+};
+const element = document.getElementById('alkaid'); // Remplacez 'element' par le sélecteur de votre élément cible
+element.addEventListener('click', () => {
+
+    init(ctx);
+});
 
 const handleResize = () => {
     resetCanvas()
-}
+};
 
-window.addEventListener('resize', handleResize)
+window.addEventListener('resize', handleResize);
 
-resetCanvas()
-draw(ctx)
+resetCanvas();
+draw(ctx);
+
+
+// const loader = document.getElementsByClassName("loader-container")[0];
+
+
+// // Définir le délai en millisecondes
+// const delai = 3001; // 3 secondes
+
+// // Utiliser setTimeout pour exécuter une fonction après le délai spécifié
+// setTimeout(function () {
+//     // Supprimer la classe "loader" de l'élément loader
+//     loader.classList.remove("loader-container");
+//     // Supprimer la classe "ball" de l'élément ball
+//     ball.classList.remove("ball");
+// }, delai);
+
+
+
+
+
+

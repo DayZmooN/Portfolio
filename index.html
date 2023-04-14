@@ -7,39 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/style.css">
-</head>
-<style>
-</style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<body id="container-content">
+
+</head>
+
+<body>
     <header>
         <div id="logo">
-            <img src="./img/RK.svg" alt="logo KR">
+            <img id="rk" src="./img/RK.svg" alt="logo KR">
         </div>
         <nav>
             <ul>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">CV</a></li>
                 <li><a href="#">En savoir plus sur moi</a></li>
-
             </ul>
+
         </nav>
     </header>
     <main>
-        <div class=" big-dipper">
-            <canvas id="alkaid"></canvas>
 
-        </div>
         <section class="perso">
-            <div id="container-content">
-                <div class="perso-container">
-                    <img src="./img/5gs8eF20_2x.jpeg.gif" alt="perso image">
+            <div class="loader-container">
+                <div class="ball"></div>
+            </div>
+            <div class=" big-dipper">
+                <canvas id="alkaid"></canvas>
+            </div>
+            <div class="perso-container">
+                <img id="perso-img" src="./img/5gs8eF20_2x.jpeg.gif" alt="perso image">
+                <div class="container">
+
+                    <i class="fa fa-linkedin" id="linkedin"></i>
+                    <i class="fa fa-github-square github" id="github"></i>
                 </div>
+            </div>
+
+            <div id="container-content">
+
 
                 <!--mes skills-->
                 <div class="skills">
                     <!--remplacer par my tools mettre des value -->
-                    <img src="./letter/myskills.svg" alt="SKILLS">
+                    <img class="letter-skills" src="./letter/myskills.svg" alt="SKILLS">
                     <div class="skills-container"><img class="letter-skills" src="./letter/html.svg" alt="">
 
                         <img class="letter-skills" src="./letter/css.svg" alt="">
@@ -55,18 +66,17 @@
                             <img src="./letter/material.svg" alt="">
                             <img src="./letter/vscode.svg" alt="">
                         </div>
+
                     </div>
-
-
-
                 </div>
+
                 <!--mon perso-->
                 <div class="me">
                     <div class="my-name">
                         <img src="./letter/name.svg" value="karim " alt="karim ">
                         <img src="./letter/lastname.svg" value=" ryahi" alt=" ryahi">
                     </div>
-                    <img src="./img/karim.svg" alt="" class="img-me">
+                    <img src="./img/2c9bc87e-df56-4449-bf88-d8726304b903.jpg" alt="" class="img-me">
 
                 </div>
                 <!--mes projet-->
@@ -79,7 +89,12 @@
                     </div>
                     <div class="projet-card">
                         <div class="card">
-                            <img src="./img/RK.svg" alt="">
+                            <img src="./img/2023-03-30 09_28_43-Gites paradise.png" alt="">
+                            <div class="modal-content">
+
+                                <img src="./img/2023-03-30 09_28_43-Gites paradise.png" alt="">
+                                <img src="./img/2023-03-30 09_28_43-Gites paradise.png" alt="">
+                            </div>
                         </div>
                     </div>
                     <div class="projet-card">
@@ -104,10 +119,13 @@
                     </div>
                 </div>
             </div>
-            </div>
+
         </section>
     </main>
     <script src="./js/main.js"></script>
+    <script src="./js/popup.js"></script>
+
+
 </body>
 
 </html>
