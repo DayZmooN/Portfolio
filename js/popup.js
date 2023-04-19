@@ -1,13 +1,14 @@
 const cards = document.getElementsByClassName('card');
 const body = document.querySelector('body');
 
-
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function () {
         createModal(this);
         body.style.overflow = 'hidden';
+        if (window.innerWidth <= 900) {
+            window.scrollTo(0, 0);
+        }
     });
-
 }
 
 function createModal(cardElement) {
@@ -22,15 +23,18 @@ function createModal(cardElement) {
     const closeBtn = modal.querySelector('.close');
     closeBtn.addEventListener('click', function () {
         modal.remove();
-
+        if (window.innerWidth <= 900) {
+            body.style.overflow = 'auto';
+            window.scrollTo(100)
+        }
     });
-    // body.addEventListener('click', () => {
-    //     modal.remove();
-    // })
 
     document.body.appendChild(modal);
+
+    // Mettre à jour la position de la modal en fonction du défilement de la page
+    const modalContent = modal.querySelector('.modal-content');
+    window.addEventListener('scroll', function () {
+        const scrollY = window.scrollY || window.pageYOffset;
+        modalContent.style.top = scrollY + 'px';
+    });
 }
-
-
-
-

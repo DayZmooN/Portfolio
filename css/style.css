@@ -39,6 +39,9 @@ body {
 body header {
   display: flex;
   padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 body header #logo {
   /* padding: 20px; */
@@ -46,12 +49,7 @@ body header #logo {
 }
 body header #logo #rk {
   background-color: rgba(24, 25, 31, 0);
-  color: #fff;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5019607843), 10px 1px 12px rgba(0, 0, 0, 0.5019607843), 2px 2px 10px rgba(0, 0, 0, 0.5019607843), 2px 2px 3px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
   animation: animate 33s linear infinite;
-  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
-}
-body header #logo #rk {
   animation-delay: 1.3s;
 }
 @keyframes animate {
@@ -89,19 +87,25 @@ body header nav ul li a {
 body header nav ul li a:hover {
   color: #3c67e3;
 }
-body header nav * {
-  margin: 0;
-  padding: 0;
+body header nav ul #linkedin,
+body header nav ul #github {
+  font-size: 40px;
+  background-color: rgba(24, 25, 31, 0);
+  color: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5019607843), 10px 1px 12px rgba(0, 0, 0, 0.5019607843), 2px 2px 10px rgba(0, 0, 0, 0.5019607843), 2px 2px 3px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+  padding: 11px 19px;
+  animation: animate 3s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
 }
-body header nav body {
-  height: 100vh;
-  width: 100vw;
-  background: #18191f;
+body header nav ul #twitter {
+  animation-delay: 0.3s;
+}
+body header nav ul #github {
+  animation-delay: 0.1s;
 }
 body main {
   background-image: url(../img/image-projet\ porfolio.png);
   width: 100%;
-  overflow: hidden;
   perspective: 1000px;
   background-position: 0px 0px;
   background-repeat: repeat;
@@ -110,6 +114,11 @@ body main {
   animation: bougerBackground 16s linear alternate infinite;
   /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
   /* Définissez l'animation */
+}
+@media screen and (max-width: 900px) {
+  body main {
+    overflow: initial;
+  }
 }
 @keyframes bougerBackground {
   0% {
@@ -125,6 +134,61 @@ body main {
   100% {
     background-position: 100% 1000px;
     /* Position finale */
+  }
+}
+body main .perso-container {
+  width: 80px;
+  position: absolute;
+  top: 60%;
+  z-index: 999;
+}
+@media screen and (max-width: 900px) {
+  body main .perso-container {
+    width: 70px;
+    position: sticky;
+    top: 50%;
+    left: 0;
+  }
+}
+body main .perso-container img {
+  width: 100%;
+}
+body main .perso-container img:hover {
+  animation: animate 3s linear infinite;
+}
+body main .perso-container .container-social {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  flex-direction: column;
+  align-items: left;
+  position: sticky;
+  top: 400px;
+  gap: 20px;
+}
+body main .perso-container .container-social #perso-img,
+body main .perso-container .container-social #linkedin,
+body main .perso-container .container-social #github {
+  font-size: 40px;
+  background-color: rgba(24, 25, 31, 0);
+  color: #fff;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5019607843), 10px 1px 12px rgba(0, 0, 0, 0.5019607843), 2px 2px 10px rgba(0, 0, 0, 0.5019607843), 2px 2px 3px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
+  padding: 11px 19px;
+  animation: animate 3s linear infinite;
+  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
+}
+body main .perso-container .container-social #twitter {
+  animation-delay: 0.3s;
+}
+body main .perso-container .container-social #github {
+  animation-delay: 0.1s;
+}
+@keyframes animate {
+  from {
+    filter: hue-rotate(0deg);
+  }
+  to {
+    filter: hue-rotate(360deg);
   }
 }
 body main .big-dipper {
@@ -213,6 +277,10 @@ body main .perso {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
 }
 body main .perso .loader-container {
   overflow: hidden;
@@ -266,62 +334,13 @@ body main .perso .loader-container .ball {
     height: 700px;
   }
 }
-body main .perso .perso-container {
-  width: 100%;
-  max-width: 100px;
-  margin: auto;
-  margin-right: 20px;
-}
-@media screen and (max-width: 900px) {
-  body main .perso .perso-container {
-    width: 50px;
-  }
-}
-body main .perso .perso-container:hover {
-  border: 1px solid #fff;
-}
-body main .perso .perso-container img {
-  width: 100%;
-}
-body main .perso .perso-container .container {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-body main .perso .perso-container .container #perso-img,
-body main .perso .perso-container .container #linkedin,
-body main .perso .perso-container .container #github {
-  font-size: 40px;
-  background-color: rgba(24, 25, 31, 0);
-  color: #fff;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5019607843), 10px 1px 12px rgba(0, 0, 0, 0.5019607843), 2px 2px 10px rgba(0, 0, 0, 0.5019607843), 2px 2px 3px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843), inset 2px 2px 10px rgba(0, 0, 0, 0.5019607843);
-  padding: 11px 19px;
-  animation: animate 3s linear infinite;
-  text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
-}
-body main .perso .perso-container .container #twitter {
-  animation-delay: 0.3s;
-}
-body main .perso .perso-container .container #github {
-  animation-delay: 0.1s;
-}
-@keyframes animate {
-  from {
-    filter: hue-rotate(0deg);
-  }
-  to {
-    filter: hue-rotate(360deg);
-  }
-}
 body main .perso #container-content {
   display: flex;
   overflow: hidden;
   align-items: center;
   gap: 40px;
   flex-wrap: initial;
-  margin: 0 50px;
+  margin-left: 100px;
   justify-content: center;
   flex-direction: row;
 }
@@ -372,27 +391,49 @@ body main .perso #container-content .skills .skills-container .letter-skills .ma
     transform: rotateY(360deg);
   }
 }
-body main .perso #container-content .me {
-  width: 53%;
-  align-items: center;
-  text-align: center;
-}
-@media screen and (max-width: 900px) {
-  body main .perso #container-content .me {
-    margin: 0 auto;
-  }
-}
-body main .perso #container-content .me:hover {
-  border: 1px solid #fff;
-}
-body main .perso #container-content .me .img-me {
+body main .perso #container-content .content-card {
+  perspective: 1000;
   width: 100%;
+  height: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 2s;
+  transform-style: preserve-3d;
+}
+body main .perso #container-content .content-card:hover.content-card {
+  transform: rotateY(180deg);
+  transition: transform 0.7s;
+}
+body main .perso #container-content .content-card .front-card,
+body main .perso #container-content .content-card .back-card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: white;
+  color: #03446A;
+  text-align: center;
+  font-size: 60px;
+  border-radius: 5px;
+  backface-visibility: hidden;
+}
+body main .perso #container-content .content-card .back-card {
+  background: #03446A;
+  color: white;
+  font-size: 1rem;
+  transform: rotateY(180deg);
+}
+body main .perso #container-content .content-card .back-card img {
+  width: 100%;
+}
+body main .perso #container-content .content-card .img-me {
+  width: 100%;
+  height: 100%;
 }
 body main .perso #container-content .projet-container {
   width: 100%;
   max-width: 500px;
   height: 550px;
   overflow-y: scroll;
+  margin: auto;
 }
 body main .perso #container-content .projet-container::-webkit-scrollbar {
   background-color: rgba(243, 12, 12, 0);
@@ -411,7 +452,6 @@ body main .perso #container-content .projet-container .projet-card {
   }
 }
 body main .perso #container-content .projet-container .projet-card .card {
-  width: 400px;
   background: #191c29;
   position: relative;
   border-radius: 6px;
@@ -424,7 +464,6 @@ body main .perso #container-content .projet-container .projet-card .card {
 @media screen and (max-width: 900px) {
   body main .perso #container-content .projet-container .projet-card .card {
     gap: 30px;
-    height: 200px;
   }
 }
 body main .perso #container-content .projet-container .projet-card .card:hover {
@@ -487,12 +526,19 @@ body .modal {
   border: 2rem solid white;
   overflow: scroll;
   width: 100%;
-  max-width: 1200px;
+  max-width: 80%;
   height: 100%;
-  max-height: 700px;
+  max-height: 80%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+@media screen and (max-width: 900px) {
+  body .modal {
+    max-width: 100%;
+    max-height: 100%;
+    bottom: 0;
+  }
 }
 body .modal::-webkit-scrollbar {
   background-color: rgba(243, 12, 12, 0);
