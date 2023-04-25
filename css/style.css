@@ -136,8 +136,65 @@ body main {
     /* Position finale */
   }
 }
+body main .presentation {
+  text-align: center;
+  perspective: 1000px;
+  transform: translateY(0px);
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* délai d'attente pour chaque image */
+}
+body main .presentation .first-text {
+  width: 100px;
+  margin: auto 20px;
+  animation: boom 7s linear;
+  animation-delay: 1.3s;
+  transform: translateY();
+}
+body main .presentation .first-text:nth-child(1) {
+  animation-delay: 0s;
+}
+body main .presentation .first-text:nth-child(2) {
+  animation-delay: 0.7s;
+  width: 70px;
+}
+body main .presentation .first-text:nth-child(3) {
+  animation-delay: 1.2s;
+}
+body main .presentation .first-text:nth-child(4) {
+  animation-delay: 1.7s;
+}
+@keyframes boom {
+  0% {
+    transform: translateY(100px);
+    filter: hue-rotate(0deg);
+    opacity: 0;
+    transform: skew(70deg);
+  }
+  25% {
+    opacity: 0.5;
+    filter: hue-rotate(360deg);
+    transform: translateY(100px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  70% {
+    transform: translateY(100px);
+    scale: 0.75;
+    transform: rotate(70deg);
+  }
+  100% {
+    transform: translateY(10px);
+    scale: 1.5;
+  }
+}
 body main .perso-container {
-  width: 80px;
+  width: 50px;
   position: absolute;
   top: 60%;
   z-index: 999;
@@ -279,7 +336,7 @@ body main .perso {
   justify-content: center;
   overflow: hidden;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
 }
 body main .perso .loader-container {
@@ -394,8 +451,10 @@ body main .perso #container-content .skills .skills-container .letter-skills .ma
 body main .perso #container-content .content-card {
   perspective: 1000;
   width: 100%;
+  max-width: 300px;
   height: 500px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  margin: 50px auto;
   transition: transform 2s;
   transform-style: preserve-3d;
 }
@@ -407,6 +466,7 @@ body main .perso #container-content .content-card .front-card,
 body main .perso #container-content .content-card .back-card {
   position: absolute;
   height: 100%;
+  max-width: 300px;
   width: 100%;
   background: white;
   color: #03446A;
@@ -523,7 +583,7 @@ body .modal {
   z-index: 9999;
   background-color: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
-  border: 2rem solid white;
+  border: 1rem solid rgb(0, 0, 0);
   overflow: scroll;
   width: 100%;
   max-width: 80%;
