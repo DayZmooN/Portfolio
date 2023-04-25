@@ -1,5 +1,7 @@
 const cards = document.getElementsByClassName('card');
 const body = document.querySelector('body');
+const modalIcons = document.getElementsByClassName('modal-icons');
+
 
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function () {
@@ -8,6 +10,8 @@ for (let i = 0; i < cards.length; i++) {
         if (window.innerWidth <= 900) {
             window.scrollTo(0, 0);
         }
+
+
     });
 }
 
@@ -18,7 +22,10 @@ function createModal(cardElement) {
         <span class="close">&times</span>
         <div class="modal-content">
             ${cardElement.innerHTML}
+            
         </div>
+  
+        
     `;
     const closeBtn = modal.querySelector('.close');
     closeBtn.addEventListener('click', function () {
@@ -37,4 +44,5 @@ function createModal(cardElement) {
         const scrollY = window.scrollY || window.pageYOffset;
         modalContent.style.top = scrollY + 'px';
     });
+
 }
