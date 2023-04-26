@@ -1,27 +1,31 @@
+@font-face {
+    font-family: 'Retro Gaming';
+    src: url(../font/Retro\ Gaming.ttf);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+h2 {
+    font-family: retro gaming;
 
+}
 
 body {
-    // overflow: hidden;
+    overflow: hidden;
 
 
-    // background-size: contain;
     background-image: url(../img/image-projet\ porfolio\ –\ Figma.png);
     background-position: 0px 0px;
     background-repeat: repeat;
     transition: background-image 1.5s ease-in-out;
-    // transition: all 5s ease-in-out;
-    /* Répéter l'image horizontalement */
-    animation: bougerBackground 16s linear alternate infinite;
-    /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
+    animation: bougerBackground 160s linear alternate infinite;
 
 
-    /* Définissez l'animation */
+
     @keyframes bougerBackground {
         0% {
             background-position: 0px 0px;
@@ -166,9 +170,10 @@ body {
         background-position: 0px 0px;
         background-repeat: repeat;
         transition: background-image 1.5s ease-in-out;
+        overflow: hidden;
         // transition: all 5s ease-in-out;
         /* Répéter l'image horizontalement */
-        animation: bougerBackground 16s linear alternate infinite;
+        animation: bougerBackground 160s linear alternate infinite;
         /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
 
         @media screen and (max-width:900px) {
@@ -204,20 +209,82 @@ body {
             perspective: 1000px;
             transform: translateY(0px);
             width: 100%;
-            height: 200px;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex-wrap: wrap;
 
             .first-text {
                 width: 100px;
                 margin: auto 20px;
-                animation: boom 7s linear;
+                animation: boom 17s linear;
                 animation-delay: 1.3s;
                 transform: translateY();
 
 
             }
+
+            .glitch,
+            .text {
+                animation: animate 33s linear infinite;
+                overflow: hidden;
+
+                color: white;
+                font-size: 6rem;
+                width: 100%;
+                font-family: retro gaming;
+                position: relative;
+                margin: 0 auto;
+                text-align: center;
+
+            }
+
+            // @keyframes noise-anim {
+            //     $steps: 20;
+
+            //     @for $i from 0 through $steps {
+            //         #{percentage($i*(1/$steps))} {
+            //             clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+            //         }
+            //     }
+            // }
+
+            // .glitch:after {
+            //     content: attr(data-text);
+            //     position: absolute;
+            //     left: 2px;
+            //     text-shadow: -1px 0 red;
+            //     top: 0;
+            //     color: rgb(255, 255, 255);
+            //     background: black;
+            //     overflow: hidden;
+            //     clip: rect(0, 900px, 0, 0);
+
+            //     animation: noise-anim 2s infinite linear alternate-reverse;
+            // }
+
+            // @keyframes noise-anim-2 {
+            //     $steps: 20;
+
+            //     @for $i from 0 through $steps {
+            //         #{percentage($i*(1/$steps))} {
+            //             clip: rect(random(100)+px, 9999px, random(100)+px, 0);
+            //         }
+            //     }
+            // }
+
+            // .glitch:before {
+            //     content: attr(data-text);
+            //     position: absolute;
+            //     left: -2px;
+            //     text-shadow: 1px 0 blue;
+            //     top: 0;
+            //     color: white;
+            //     background: black;
+            //     overflow: hidden;
+            //     clip: rect(0, 900px, 0, 0);
+            //     animation: noise-anim-2 2s infinite linear alternate-reverse;
+            // }
 
             /* délai d'attente pour chaque image */
             .first-text:nth-child(1) {
@@ -240,656 +307,701 @@ body {
 
 
 
-            @keyframes boom {
-                0% {
-                    transform: translateY(100px);
-                    filter: hue-rotate(0deg);
-                    opacity: 0;
-                    transform: skew(70deg);
+            // @keyframes boom {
+            //     0% {
+            //         transform: translateY(100px);
+            //         filter: hue-rotate(0deg);
+            //         opacity: 0;
+            //         transform: skew(70deg);
+
+            //     }
+
+            //     25% {
+            //         opacity: 0.5;
+            //         // transform: translateY(100px);
+            //         filter: hue-rotate(360deg);
+            //         transform: translateY(100px);
+            //     }
+
+            //     50% {
+            //         opacity: 1;
+            //         transform: scale(1);
+            //     }
+
+            //     70% {
+            //         transform: translateY(100px);
+            //         scale: 0.75;
+            //         transform: rotate(70deg);
+            //     }
+
+            //     100% {
+            //         transform: translateY(10px);
+            //         scale: 1.5;
+            //     }
 
-                }
 
-                25% {
-                    opacity: 0.5;
-                    // transform: translateY(100px);
-                    filter: hue-rotate(360deg);
-                    transform: translateY(100px);
-                }
 
-                50% {
-                    opacity: 1;
-                    transform: scale(1);
-                }
-
-                70% {
-                    transform: translateY(100px);
-                    scale: 0.75;
-                    transform: rotate(70deg);
-                }
-
-                100% {
-                    transform: translateY(10px);
-                    scale: 1.5;
-                }
-
-
-
-            }
-        }
-
-        .perso-container {
-            // visibility: hidden;
-            width: 50px;
-            position: absolute;
-            top: 60%;
-            z-index: 999;
-
-            @media screen and (max-width:900px) {
-                width: 70px;
-                // display: block;
-                position: sticky;
-                // visibility: visible;
-                top: 50%;
-                left: 0;
-            }
-
-
-
-
-            img {
-                width: 100%;
-
-                // object-fit: cover;
-                &:hover {
-                    animation: animate 3s linear infinite;
-
-
-                }
-            }
-
-            .container-social {
-                width: 100%;
-                display: flex;
-                justify-content: left;
-                flex-direction: column;
-                align-items: left;
-                position: sticky;
-                top: 400px;
-                gap: 20px;
-
-                #perso-img,
-                #linkedin,
-                #github {
-                    font-size: 40px;
-                    background-color: #18191f00;
-                    color: #fff;
-                    box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
-                        2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
-                        inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
-                        inset 2px 2px 10px #00000080;
-                    // border-radius: 29px;
-                    padding: 11px 19px;
-                    animation: animate 3s linear infinite;
-                    text-shadow: 0 0 50px #0072ff,
-                        0 0 100px #0072ff,
-                        0 0 150px #0072ff,
-                        0 0 200px #0072ff;
-                }
-
-                #twitter {
-                    animation-delay: 0.3s;
-                }
-
-
-
-                #github {
-                    animation-delay: 0.1s;
-                }
-
-                @keyframes animate {
-                    from {
-                        filter: hue-rotate(0deg);
-                    }
-
-                    to {
-                        filter: hue-rotate(360deg);
-                    }
-                }
-            }
-
-
-
-
-        }
-
-        .big-dipper {
-
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 10;
-            cursor: pointer;
-            animation: sway 200s infinite ease-in-out alternate;
-            perspective: 1000px;
-
-
-
-            canvas {
-                cursor: pointer;
-                border-radius: 50%;
-                animation: filter-more forwards linear 4s,
-                    shrink forwards linear 5s 3s,
-                    blink linear infinite 1.2s 3s;
-                filter: blur(var(--blur-min)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation-min));
-
-                .scope {
-                    width: clamp(500px, 90vmin, 1200px);
-                    height: clamp(500px, 90vmin, 1200px);
-                    border-radius: 50%;
-                    overflow: hidden;
-                }
-
-
-            }
-
-            canvas.reset {
-                animation: none;
-            }
-        }
-
-        .circle {
-            position: absolute;
-        }
-
-        @keyframes filter-more {
-            from {
-                transform: translate(100px);
-                filter: blur(var(--blur-min)) contrast(10) hue-rotate(var(--hue-rotation));
-            }
-
-            to {
-                transform: scale(0.15);
-                filter: blur(var(--blur-max)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation));
-            }
-        }
-
-
-        @keyframes shrink {
-            to {
-                transform: scale(0.25);
-            }
-        }
-
-        @keyframes blink {
-            28% {
-                opacity: 1;
-            }
-
-            30% {
-                opacity: 0.9;
-            }
-
-            32% {
-                opacity: 0.8;
-            }
-
-            34% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.9;
-            }
-
-            52% {
-                opacity: 0.6;
-            }
-
-            from,
-            54%,
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes sway {
-            0% {
-                transform: rotateZ(-2deg);
-                transform: translate3d(-0, 0, 0);
-
-            }
-
-            25% {
-                transform: translate3d(5000px, 4000, 300);
-
-            }
-
-            50% {
-                transform: translate3d(200px, 200px, 200px);
-
-            }
-
-            100% {
-                transform: translate3d(200px, -200px, -200px);
-                transform: rotateZ(2deg);
-            }
-        }
-
-        .perso {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            width: 100%;
-            max-width: 1400px;
-            margin: auto;
-
-
-
-            .loader-container {
-
-                overflow: hidden;
-                animation: over 4s linear forwards;
-
-                .ball {
-                    top: 50%;
-                    left: 50%;
-                    transform: translate(-50%, -50%);
-                    width: 150px;
-                    height: 150px;
-                    background: linear-gradient(rgb(221, 130, 12), rgba(11, 11, 11, 0.532), indigo);
-                    border-radius: 50%;
-                    position: absolute;
-                    // top: 0;
-                    // left: 0;
-                    transform: translate(-50%, -50%);
-                    transition: all 0.3s linear;
-                    animation: bounce 20s linear forwards infinite;
-                    rotate: -360deg;
-                }
-            }
-
-
-
-
-
-            @keyframes bounce {
-                0% {
-                    width: 50px;
-                    height: 50px;
-                    top: -70px;
-                }
-
-                25% {
-                    width: 50px;
-                    height: 50px;
-                    top: 50%;
-                }
-
-                35% {
-                    width: 80px;
-                    height: 80px;
-                }
-
-                45% {
-                    right: 100px;
-                    width: 50px;
-                    height: 50px;
-                }
-
-                65% {
-                    width: 80px;
-                    height: 80px;
-                    rotate: 180deg;
-                }
-
-                85% {
-                    width: 50px;
-                    height: 50px;
-                }
-
-                100% {
-                    width: 700px;
-                    height: 700px;
-                }
-            }
-
-
-
-
-
-            #container-content {
-                // width: 100%;
-                display: flex;
-                overflow: hidden;
-                align-items: center;
-                gap: 40px;
-                flex-wrap: initial;
-                margin-left: 100px;
-                justify-content: center;
-                flex-direction: row;
-
-                @media screen and (max-width:900px) {
-                    width: 100%;
-                    display: block;
-                }
-
-
-                .skills {
-                    width: 100%;
-                    max-width: 50%;
-                    margin: 0 auto;
-                    // max-width: fit-content;
-                    text-align: center;
-                    // height: 100%;
-                    perspective: 1000px;
-
-
-
-                    // @media screen and (max-width:1200px) {
-                    //     width: 700px;
-                    // }
-
-                    // @media screen and (max-width:900px) {
-                    //     width: 1200px;
-                    // }
-
-                    .letter-skills {
-                        width: 100%;
-
-                        @media screen and (max-width:1200px) {
-                            width: 140px;
-                        }
-                    }
-
-
-
-
-
-                    .skills-container {
-                        width: 95%;
-
-
-                        .letter-skills {
-                            // border: 1px solid #fff;
-                            display: inline-block;
-                            padding: 20px;
-                            width: 140px;
-                            animation: po 10s ease-in-out infinite;
-                            // animation-delay: 3s;
-                            box-shadow: 4px white;
-
-                            @media screen and (max-width:1200px) {
-                                width: 100px;
-                            }
-
-                            .material-container {
-                                width: 100;
-
-
-                            }
-
-                            @keyframes po {
-                                0% {
-                                    transform: rotateY(0);
-                                }
-
-
-                                25% {
-                                    transform: rotateY(360deg);
-
-
-                                }
-
-
-
-
-
-                            }
-                        }
-                    }
-                }
-
-                // card of me ma card perso
-
-
-
-                // @media screen and (max-width:900px) {
-                //     // width: 300px;
-                //     margin: 0 auto;
-                // }
-
-                // &:hover {
-
-
-                //     border: 1px solid #fff;
-                // }
-
-                .content-card {
-                    perspective: 1000px;
-                    width: 100%;
-                    max-width: 300px;
-                    height: 500px;
-                    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-                    margin: 50px auto;
-                    transition: transform 2s;
-                    transform-style: preserve-3d;
-                    cursor: pointer;
-
-                    &:hover.content-card {
-                        transform: rotateY(180deg);
-                        transition: transform 0.7s;
-                    }
-
-                    .front-card,
-                    .back-card {
-                        position: absolute;
-                        height: 100%;
-                        max-width: 300px;
-                        width: 100%;
-
-                        background: white;
-
-                        color: #03446A;
-                        text-align: center;
-                        font-size: 60px;
-                        border-radius: 5px;
-                        backface-visibility: hidden;
-                    }
-
-                    .back-card {
-                        background: #03446A;
-                        color: white;
-                        font-size: 1rem;
-
-                        transform: rotateY(180deg);
-
-                        img {
-                            width: 100%;
-                        }
-                    }
-
-
-                    .img-me {
-                        // display: flex;
-                        width: 100%;
-                        height: 100%;
-                    }
-                }
-
-                //projet perso en card
-                .projet-container {
-                    width: 100%;
-                    max-width: 500px;
-                    height: 550px;
-                    overflow-y: scroll;
-                    margin: auto;
-
-                    &::-webkit-scrollbar {
-                        background-color: #f30c0c00;
-                        display: none;
-                    }
-
-                    &::-webkit-scrollbar-corner {
-                        display: none;
-                    }
-
-                    .projet-card {
-                        padding: 20px;
-                        // width: 100%;
-                        gap: 30px;
-
-
-
-                        @media screen and (max-width:900px) {
-                            gap: 40px;
-                        }
-
-
-
-
-
-                        .card {
-                            background: #191c29;
-                            position: relative;
-                            border-radius: 6px;
-                            align-items: center;
-                            text-align: center;
-                            display: flex;
-                            color: rgba(88, 199, 250, 0%);
-                            cursor: pointer;
-
-                            @media screen and (max-width:900px) {
-                                gap: 30px;
-                            }
-
-                            &:hover {
-                                color: rgba(88, 199, 250, 1);
-                                transition: color 1s;
-
-                                &:before,
-                                &:after {
-                                    animation: none;
-                                    opacity: 0;
-                                }
-                            }
-
-                            &::before {
-                                content: "";
-                                width: 104%;
-                                height: 102%;
-                                border-radius: 8px;
-                                background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-                                transition: opacity 0.5s;
-                                position: absolute;
-                                z-index: -1;
-                                top: -1%;
-                                left: -2%;
-                                animation: spin 2.5s linear infinite;
-
-
-
-                            }
-
-                            &::after {
-                                position: absolute;
-                                content: "";
-                                top: calc(var(--card-height) / 6);
-                                left: 0;
-                                right: 0;
-                                z-index: -1;
-                                height: 100%;
-                                width: 100%;
-                                margin: 0 auto;
-                                transform: scale(0.8);
-                                background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
-                                opacity: 1;
-                                transition: opacity 0.5s;
-                                animation: spin 2.5s linear infinite;
-                            }
-                        }
-
-                        @keyframes spin {
-                            0% {
-                                --rotate: 0deg;
-                            }
-
-                            75% {
-                                scale: .97;
-                            }
-
-                            100% {
-
-                                --rotate: 360deg;
-                            }
-                        }
-
-                        img {
-                            padding: 10px;
-                            width: 100%;
-                        }
-                    }
-                }
-
-            }
         }
     }
 
-    .modal {
-        background: url(../img/image-projet\ porfolio.png);
+    .perso-container {
+        // visibility: hidden;
+        width: 50px;
         position: absolute;
-        z-index: 9999;
-        background-color: rgba(0, 0, 0, 0.8);
-        border-radius: 10px;
-        overflow: scroll;
-        width: 100%;
-        max-width: 80%;
-        height: 100%;
-        max-height: 80%;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
-
-
+        top: 60%;
+        z-index: 999;
 
         @media screen and (max-width:900px) {
-            max-width: 100%;
-            max-height: 100%;
-            bottom: 0;
-        }
-
-        &::-webkit-scrollbar {
-            background-color: #f30c0c00;
-            display: none;
-        }
-
-        &::-webkit-scrollbar-corner {
-            display: none;
-        }
-
-        .close {
-            background-color: #f30c0c;
-            border-radius: 10px;
-            right: 100%;
-            top: 0%;
-            width: 1px;
-            text-align: center;
+            width: 70px;
+            // display: block;
             position: sticky;
-            color: #ffffff;
-            font-size: 5rem;
-            cursor: pointer;
-
+            // visibility: visible;
+            top: 50%;
+            left: 0;
         }
 
-        .modal-content {
+
+
+
+        img {
+            width: 100%;
+
+            // object-fit: cover;
+            &:hover {
+                animation: animate 3s linear infinite;
+
+
+            }
+        }
+
+        .container-social {
+            width: 100%;
             display: flex;
+            justify-content: left;
             flex-direction: column;
-            justify-content: center;
+            align-items: left;
+            position: sticky;
+            top: 400px;
+            gap: 20px;
+
+            #perso-img,
+            #linkedin,
+            #github {
+                font-size: 40px;
+                background-color: #18191f00;
+                color: #fff;
+                box-shadow: 2px 2px 2px #00000080, 10px 1px 12px #00000080,
+                    2px 2px 10px #00000080, 2px 2px 3px #00000080, inset 2px 2px 10px #00000080,
+                    inset 2px 2px 10px #00000080, inset 2px 2px 10px #00000080,
+                    inset 2px 2px 10px #00000080;
+                // border-radius: 29px;
+                padding: 11px 19px;
+                animation: animate 3s linear infinite;
+                text-shadow: 0 0 50px #0072ff,
+                    0 0 100px #0072ff,
+                    0 0 150px #0072ff,
+                    0 0 200px #0072ff;
+            }
+
+            #twitter {
+                animation-delay: 0.3s;
+            }
+
+
+
+            #github {
+                animation-delay: 0.1s;
+            }
+
+            @keyframes animate {
+                from {
+                    filter: hue-rotate(0deg);
+                }
+
+                to {
+                    filter: hue-rotate(360deg);
+                }
+            }
+        }
+
+
+
+
+    }
+
+    .big-dipper {
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        cursor: pointer;
+        animation: sway 200s infinite ease-in-out alternate;
+        perspective: 1000px;
+
+
+
+        canvas {
+            cursor: pointer;
+            border-radius: 50%;
+            animation: filter-more forwards linear 4s,
+                shrink forwards linear 5s 3s,
+                blink linear infinite 1.2s 3s;
+            filter: blur(var(--blur-min)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation-min));
+
+            .scope {
+                width: clamp(500px, 90vmin, 1200px);
+                height: clamp(500px, 90vmin, 1200px);
+                border-radius: 50%;
+                overflow: hidden;
+            }
 
 
         }
+
+        canvas.reset {
+            animation: none;
+        }
+    }
+
+    .circle {
+        position: absolute;
+    }
+
+    @keyframes filter-more {
+        from {
+            transform: translate(100px);
+            filter: blur(var(--blur-min)) contrast(10) hue-rotate(var(--hue-rotation));
+        }
+
+        to {
+            transform: scale(0.15);
+            filter: blur(var(--blur-max)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation));
+        }
+    }
+
+
+    @keyframes shrink {
+        to {
+            transform: scale(0.25);
+        }
+    }
+
+    @keyframes blink {
+        28% {
+            opacity: 1;
+        }
+
+        30% {
+            opacity: 0.9;
+        }
+
+        32% {
+            opacity: 0.8;
+        }
+
+        34% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.9;
+        }
+
+        52% {
+            opacity: 0.6;
+        }
+
+        from,
+        54%,
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes sway {
+        0% {
+            transform: rotateZ(-2deg);
+            transform: translate3d(-0, 0, 0);
+
+        }
+
+        25% {
+            transform: translate3d(5000px, 4000, 300);
+
+        }
+
+        50% {
+            transform: translate3d(200px, 200px, 200px);
+
+        }
+
+        100% {
+            transform: translate3d(200px, -200px, -200px);
+            transform: rotateZ(2deg);
+        }
+    }
+
+    .perso {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        width: 100%;
+        max-width: 1400px;
+        margin: auto;
+
+
+
+        .loader-container {
+
+            overflow: hidden;
+            animation: over 4s linear forwards;
+
+            .ball {
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 150px;
+                height: 150px;
+                background: linear-gradient(rgb(221, 130, 12), rgba(11, 11, 11, 0.532), indigo);
+                border-radius: 50%;
+                position: absolute;
+                // top: 0;
+                // left: 0;
+                transform: translate(-50%, -50%);
+                transition: all 0.3s linear;
+                animation: bounce 20s linear forwards infinite;
+                rotate: -360deg;
+            }
+        }
+
+
+
+
+
+        @keyframes bounce {
+            0% {
+                width: 50px;
+                height: 50px;
+                top: -70px;
+            }
+
+            25% {
+                width: 50px;
+                height: 50px;
+                top: 50%;
+            }
+
+            35% {
+                width: 80px;
+                height: 80px;
+            }
+
+            45% {
+                right: 100px;
+                width: 50px;
+                height: 50px;
+            }
+
+            65% {
+                width: 80px;
+                height: 80px;
+                rotate: 180deg;
+            }
+
+            85% {
+                width: 50px;
+                height: 50px;
+            }
+
+            100% {
+                width: 700px;
+                height: 700px;
+            }
+        }
+
+
+
+
+
+        #container-content {
+            // width: 100%;
+            display: flex;
+            overflow: hidden;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: initial;
+            margin-left: 100px;
+            justify-content: center;
+            flex-direction: row;
+
+
+            @media screen and (max-width:900px) {
+                width: 100%;
+                display: block;
+            }
+
+
+            .skills {
+                width: 100%;
+                margin: 0 auto;
+                // max-width: fit-content;
+                text-align: center;
+                // height: 100%;
+                perspective: 1000px;
+
+
+
+                .letter-skills {
+                    width: 100%;
+                    color: #ffffff;
+                    font-size: 3rem;
+                    font-family: retro gaming;
+
+                    mix-blend-mode: screen;
+                    letter-spacing: 0.2em;
+                    text-transform: uppercase;
+
+
+
+
+
+
+
+
+
+                    @media screen and (max-width:1200px) {
+                        width: 140px;
+                    }
+                }
+
+
+
+
+
+                .skills-container {
+                    width: 95%;
+                    font-family: retro gaming;
+
+
+
+                    .letter-skills {
+                        // border: 1px solid #fff;
+                        display: inline-block;
+                        padding: 20px;
+                        font-size: 2rem;
+                        width: 200px;
+                        // color: #fff;
+                        font-size: 2rem;
+                        animation: po 10s ease-in-out infinite;
+                        // animation-delay: 3s;
+                        box-shadow: 4px white;
+                        font-family: retro gaming;
+
+
+
+
+
+                        @media screen and (max-width:1200px) {
+                            width: 100px;
+                        }
+
+                        .material-container {
+                            width: 100;
+
+
+                        }
+
+                        @keyframes po {
+                            0% {
+                                transform: rotateY(0);
+                            }
+
+
+                            25% {
+                                transform: rotateY(360deg);
+
+
+                            }
+
+
+
+
+
+                        }
+                    }
+                }
+            }
+
+            // card of me ma card perso
+
+
+
+            // @media screen and (max-width:900px) {
+            //     // width: 300px;
+            //     margin: 0 auto;
+            // }
+
+            // &:hover {
+
+
+            //     border: 1px solid #fff;
+            // }
+
+            .content-card {
+                perspective: 1000px;
+                width: 100%;
+                max-width: 300px;
+                height: 500px;
+                box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+                margin: 50px auto;
+                transition: transform 2s;
+                transform-style: preserve-3d;
+                cursor: pointer;
+
+                &:hover.content-card {
+                    transform: rotateY(180deg);
+                    transition: transform 0.7s;
+                }
+
+                .front-card,
+                .back-card {
+                    position: absolute;
+                    height: 100%;
+                    max-width: 300px;
+                    width: 100%;
+
+                    background: white;
+
+                    color: #03446A;
+                    text-align: center;
+                    font-size: 60px;
+                    border-radius: 5px;
+                    backface-visibility: hidden;
+                }
+
+                .back-card {
+                    background: #03446A;
+                    color: white;
+                    font-size: 1rem;
+
+                    transform: rotateY(180deg);
+
+                    img {
+                        width: 100%;
+                    }
+                }
+
+
+                .img-me {
+                    // display: flex;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            //projet perso en card
+            .projet-container {
+                width: 100%;
+                max-width: 500px;
+                height: 550px;
+                overflow-y: scroll;
+                margin: auto;
+
+                &::-webkit-scrollbar {
+                    background-color: #f30c0c00;
+                    display: none;
+                }
+
+                &::-webkit-scrollbar-corner {
+                    display: none;
+                }
+
+                .projet-card {
+                    padding: 20px;
+                    // width: 100%;
+                    gap: 30px;
+
+
+
+                    @media screen and (max-width:900px) {
+                        gap: 40px;
+                    }
+
+
+
+
+
+                    .card {
+                        background: #191c29;
+                        position: relative;
+                        border-radius: 6px;
+                        align-items: center;
+                        text-align: center;
+                        display: flex;
+                        color: rgba(88, 199, 250, 0%);
+                        cursor: pointer;
+
+                        @media screen and (max-width:900px) {
+                            gap: 30px;
+                        }
+
+                        &:hover {
+                            color: rgba(88, 199, 250, 1);
+                            transition: color 1s;
+
+                            &:before,
+                            &:after {
+                                animation: none;
+                                opacity: 0;
+                            }
+                        }
+
+                        &::before {
+                            content: "";
+                            width: 104%;
+                            height: 102%;
+                            border-radius: 8px;
+                            background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+                            transition: opacity 0.5s;
+                            position: absolute;
+                            z-index: -1;
+                            top: -1%;
+                            left: -2%;
+                            animation: spin 2.5s linear infinite;
+
+
+
+                        }
+
+                        &::after {
+                            position: absolute;
+                            content: "";
+                            top: calc(var(--card-height) / 6);
+                            left: 0;
+                            right: 0;
+                            z-index: -1;
+                            height: 100%;
+                            width: 100%;
+                            margin: 0 auto;
+                            transform: scale(0.8);
+                            background-image: linear-gradient(var(--rotate), #5ddcff, #3c67e3 43%, #4e00c2);
+                            opacity: 1;
+                            transition: opacity 0.5s;
+                            animation: spin 2.5s linear infinite;
+                        }
+
+                        .modal-content {
+                            visibility: hidden;
+                        }
+                    }
+
+                    @keyframes spin {
+                        0% {
+                            --rotate: 0deg;
+                        }
+
+                        75% {
+                            scale: .97;
+                        }
+
+                        100% {
+
+                            --rotate: 360deg;
+                        }
+                    }
+
+                    img {
+                        padding: 10px;
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.modal {
+    background: url(../img/image-projet\ porfolio.png);
+    position: absolute;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    overflow: scroll;
+    width: 100%;
+    max-width: 80%;
+    height: 100%;
+    max-height: 80%;
+    top: 10%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
+    transition: all .5s ease-in-out;
+    animation-name: modal-open;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    text-align: center;
+
+
+    @keyframes modal-open {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+
+
+
+    @media screen and (max-width:900px) {
+
+        bottom: 0;
+    }
+
+    &::-webkit-scrollbar {
+        background-color: #f30c0c00;
+        display: none;
+    }
+
+    &::-webkit-scrollbar-corner {
+        display: none;
+    }
+
+
+
+    .modal-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #ffffff;
+        visibility: visible;
+
+        .icon-close {
+            width: 100%;
+            top: 0;
+            position: sticky;
+            text-align: right;
+
+            .close {
+                background-color: #f30c0c;
+                border-radius: 10px;
+                right: 100%;
+                top: 0%;
+                width: 1px;
+                text-align: center;
+                position: sticky;
+                color: #ffffff;
+                font-size: 2rem;
+                cursor: pointer;
+
+            }
+        }
+
 
 
     }
@@ -906,7 +1018,12 @@ body {
         justify-content: center;
         align-items: center;
         margin: auto;
+
         // z-index: 999;
+        .retro-text {
+            font-family: retro Gaming;
+            font-size: 2rem;
+        }
 
         .icon-img {
             padding: 5px;

@@ -19,8 +19,11 @@ function createModal(cardElement) {
     const modal = document.createElement('div');
     modal.classList.add('modal');
     modal.innerHTML = `
-        <span class="close">&times</span>
+        
         <div class="modal-content">
+        <div class="icon-close">
+        <span class="close">&times</span>
+        </div>
             ${cardElement.innerHTML}
             
         </div>

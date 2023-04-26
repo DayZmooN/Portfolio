@@ -1,19 +1,25 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "Retro Gaming";
+  src: url(../font/Retro\ Gaming.ttf);
+}
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+h2 {
+  font-family: retro gaming;
+}
+
 body {
+  overflow: hidden;
   background-image: url(../img/image-projet\ porfolio\ –\ Figma.png);
   background-position: 0px 0px;
   background-repeat: repeat;
   transition: background-image 1.5s ease-in-out;
-  /* Répéter l'image horizontalement */
-  animation: bougerBackground 16s linear alternate infinite;
-  /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
-  /* Définissez l'animation */
+  animation: bougerBackground 160s linear alternate infinite;
 }
 @keyframes bougerBackground {
   0% {
@@ -110,8 +116,9 @@ body main {
   background-position: 0px 0px;
   background-repeat: repeat;
   transition: background-image 1.5s ease-in-out;
+  overflow: hidden;
   /* Répéter l'image horizontalement */
-  animation: bougerBackground 16s linear alternate infinite;
+  animation: bougerBackground 160s linear alternate infinite;
   /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
   /* Définissez l'animation */
 }
@@ -141,18 +148,30 @@ body main .presentation {
   perspective: 1000px;
   transform: translateY(0px);
   width: 100%;
-  height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   /* délai d'attente pour chaque image */
 }
 body main .presentation .first-text {
   width: 100px;
   margin: auto 20px;
-  animation: boom 7s linear;
+  animation: boom 17s linear;
   animation-delay: 1.3s;
   transform: translateY();
+}
+body main .presentation .glitch,
+body main .presentation .text {
+  animation: animate 33s linear infinite;
+  overflow: hidden;
+  color: white;
+  font-size: 6rem;
+  width: 100%;
+  font-family: retro gaming;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
 }
 body main .presentation .first-text:nth-child(1) {
   animation-delay: 0s;
@@ -167,53 +186,27 @@ body main .presentation .first-text:nth-child(3) {
 body main .presentation .first-text:nth-child(4) {
   animation-delay: 1.7s;
 }
-@keyframes boom {
-  0% {
-    transform: translateY(100px);
-    filter: hue-rotate(0deg);
-    opacity: 0;
-    transform: skew(70deg);
-  }
-  25% {
-    opacity: 0.5;
-    filter: hue-rotate(360deg);
-    transform: translateY(100px);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  70% {
-    transform: translateY(100px);
-    scale: 0.75;
-    transform: rotate(70deg);
-  }
-  100% {
-    transform: translateY(10px);
-    scale: 1.5;
-  }
-}
-body main .perso-container {
+body .perso-container {
   width: 50px;
   position: absolute;
   top: 60%;
   z-index: 999;
 }
 @media screen and (max-width: 900px) {
-  body main .perso-container {
+  body .perso-container {
     width: 70px;
     position: sticky;
     top: 50%;
     left: 0;
   }
 }
-body main .perso-container img {
+body .perso-container img {
   width: 100%;
 }
-body main .perso-container img:hover {
+body .perso-container img:hover {
   animation: animate 3s linear infinite;
 }
-body main .perso-container .container-social {
+body .perso-container .container-social {
   width: 100%;
   display: flex;
   justify-content: left;
@@ -223,9 +216,9 @@ body main .perso-container .container-social {
   top: 400px;
   gap: 20px;
 }
-body main .perso-container .container-social #perso-img,
-body main .perso-container .container-social #linkedin,
-body main .perso-container .container-social #github {
+body .perso-container .container-social #perso-img,
+body .perso-container .container-social #linkedin,
+body .perso-container .container-social #github {
   font-size: 40px;
   background-color: rgba(24, 25, 31, 0);
   color: #fff;
@@ -234,10 +227,10 @@ body main .perso-container .container-social #github {
   animation: animate 3s linear infinite;
   text-shadow: 0 0 50px #0072ff, 0 0 100px #0072ff, 0 0 150px #0072ff, 0 0 200px #0072ff;
 }
-body main .perso-container .container-social #twitter {
+body .perso-container .container-social #twitter {
   animation-delay: 0.3s;
 }
-body main .perso-container .container-social #github {
+body .perso-container .container-social #github {
   animation-delay: 0.1s;
 }
 @keyframes animate {
@@ -248,7 +241,7 @@ body main .perso-container .container-social #github {
     filter: hue-rotate(360deg);
   }
 }
-body main .big-dipper {
+body .big-dipper {
   position: absolute;
   top: 0;
   left: 0;
@@ -257,22 +250,22 @@ body main .big-dipper {
   animation: sway 200s infinite ease-in-out alternate;
   perspective: 1000px;
 }
-body main .big-dipper canvas {
+body .big-dipper canvas {
   cursor: pointer;
   border-radius: 50%;
   animation: filter-more forwards linear 4s, shrink forwards linear 5s 3s, blink linear infinite 1.2s 3s;
   filter: blur(var(--blur-min)) contrast(var(--max-contrast)) hue-rotate(var(--hue-rotation-min));
 }
-body main .big-dipper canvas .scope {
+body .big-dipper canvas .scope {
   width: clamp(500px, 90vmin, 1200px);
   height: clamp(500px, 90vmin, 1200px);
   border-radius: 50%;
   overflow: hidden;
 }
-body main .big-dipper canvas.reset {
+body .big-dipper canvas.reset {
   animation: none;
 }
-body main .circle {
+body .circle {
   position: absolute;
 }
 @keyframes filter-more {
@@ -329,7 +322,7 @@ body main .circle {
     transform: rotateZ(2deg);
   }
 }
-body main .perso {
+body .perso {
   width: 100%;
   display: flex;
   align-items: center;
@@ -339,11 +332,11 @@ body main .perso {
   max-width: 1400px;
   margin: auto;
 }
-body main .perso .loader-container {
+body .perso .loader-container {
   overflow: hidden;
   animation: over 4s linear forwards;
 }
-body main .perso .loader-container .ball {
+body .perso .loader-container .ball {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -391,7 +384,7 @@ body main .perso .loader-container .ball {
     height: 700px;
   }
 }
-body main .perso #container-content {
+body .perso #container-content {
   display: flex;
   overflow: hidden;
   align-items: center;
@@ -402,42 +395,51 @@ body main .perso #container-content {
   flex-direction: row;
 }
 @media screen and (max-width: 900px) {
-  body main .perso #container-content {
+  body .perso #container-content {
     width: 100%;
     display: block;
   }
 }
-body main .perso #container-content .skills {
+body .perso #container-content .skills {
   width: 100%;
-  max-width: 50%;
   margin: 0 auto;
   text-align: center;
   perspective: 1000px;
 }
-body main .perso #container-content .skills .letter-skills {
+body .perso #container-content .skills .letter-skills {
   width: 100%;
+  color: #ffffff;
+  font-size: 3rem;
+  font-family: retro gaming;
+  mix-blend-mode: screen;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
 }
 @media screen and (max-width: 1200px) {
-  body main .perso #container-content .skills .letter-skills {
+  body .perso #container-content .skills .letter-skills {
     width: 140px;
   }
 }
-body main .perso #container-content .skills .skills-container {
+body .perso #container-content .skills .skills-container {
   width: 95%;
+  font-family: retro gaming;
 }
-body main .perso #container-content .skills .skills-container .letter-skills {
+body .perso #container-content .skills .skills-container .letter-skills {
   display: inline-block;
   padding: 20px;
-  width: 140px;
+  font-size: 2rem;
+  width: 200px;
+  font-size: 2rem;
   animation: po 10s ease-in-out infinite;
   box-shadow: 4px white;
+  font-family: retro gaming;
 }
 @media screen and (max-width: 1200px) {
-  body main .perso #container-content .skills .skills-container .letter-skills {
+  body .perso #container-content .skills .skills-container .letter-skills {
     width: 100px;
   }
 }
-body main .perso #container-content .skills .skills-container .letter-skills .material-container {
+body .perso #container-content .skills .skills-container .letter-skills .material-container {
   width: 100;
 }
 @keyframes po {
@@ -448,7 +450,7 @@ body main .perso #container-content .skills .skills-container .letter-skills .ma
     transform: rotateY(360deg);
   }
 }
-body main .perso #container-content .content-card {
+body .perso #container-content .content-card {
   perspective: 1000px;
   width: 100%;
   max-width: 300px;
@@ -459,12 +461,12 @@ body main .perso #container-content .content-card {
   transform-style: preserve-3d;
   cursor: pointer;
 }
-body main .perso #container-content .content-card:hover.content-card {
+body .perso #container-content .content-card:hover.content-card {
   transform: rotateY(180deg);
   transition: transform 0.7s;
 }
-body main .perso #container-content .content-card .front-card,
-body main .perso #container-content .content-card .back-card {
+body .perso #container-content .content-card .front-card,
+body .perso #container-content .content-card .back-card {
   position: absolute;
   height: 100%;
   max-width: 300px;
@@ -476,43 +478,43 @@ body main .perso #container-content .content-card .back-card {
   border-radius: 5px;
   backface-visibility: hidden;
 }
-body main .perso #container-content .content-card .back-card {
+body .perso #container-content .content-card .back-card {
   background: #03446A;
   color: white;
   font-size: 1rem;
   transform: rotateY(180deg);
 }
-body main .perso #container-content .content-card .back-card img {
+body .perso #container-content .content-card .back-card img {
   width: 100%;
 }
-body main .perso #container-content .content-card .img-me {
+body .perso #container-content .content-card .img-me {
   width: 100%;
   height: 100%;
 }
-body main .perso #container-content .projet-container {
+body .perso #container-content .projet-container {
   width: 100%;
   max-width: 500px;
   height: 550px;
   overflow-y: scroll;
   margin: auto;
 }
-body main .perso #container-content .projet-container::-webkit-scrollbar {
+body .perso #container-content .projet-container::-webkit-scrollbar {
   background-color: rgba(243, 12, 12, 0);
   display: none;
 }
-body main .perso #container-content .projet-container::-webkit-scrollbar-corner {
+body .perso #container-content .projet-container::-webkit-scrollbar-corner {
   display: none;
 }
-body main .perso #container-content .projet-container .projet-card {
+body .perso #container-content .projet-container .projet-card {
   padding: 20px;
   gap: 30px;
 }
 @media screen and (max-width: 900px) {
-  body main .perso #container-content .projet-container .projet-card {
+  body .perso #container-content .projet-container .projet-card {
     gap: 40px;
   }
 }
-body main .perso #container-content .projet-container .projet-card .card {
+body .perso #container-content .projet-container .projet-card .card {
   background: #191c29;
   position: relative;
   border-radius: 6px;
@@ -523,19 +525,19 @@ body main .perso #container-content .projet-container .projet-card .card {
   cursor: pointer;
 }
 @media screen and (max-width: 900px) {
-  body main .perso #container-content .projet-container .projet-card .card {
+  body .perso #container-content .projet-container .projet-card .card {
     gap: 30px;
   }
 }
-body main .perso #container-content .projet-container .projet-card .card:hover {
+body .perso #container-content .projet-container .projet-card .card:hover {
   color: rgb(88, 199, 250);
   transition: color 1s;
 }
-body main .perso #container-content .projet-container .projet-card .card:hover:before, body main .perso #container-content .projet-container .projet-card .card:hover:after {
+body .perso #container-content .projet-container .projet-card .card:hover:before, body .perso #container-content .projet-container .projet-card .card:hover:after {
   animation: none;
   opacity: 0;
 }
-body main .perso #container-content .projet-container .projet-card .card::before {
+body .perso #container-content .projet-container .projet-card .card::before {
   content: "";
   width: 104%;
   height: 102%;
@@ -548,7 +550,7 @@ body main .perso #container-content .projet-container .projet-card .card::before
   left: -2%;
   animation: spin 2.5s linear infinite;
 }
-body main .perso #container-content .projet-container .projet-card .card::after {
+body .perso #container-content .projet-container .projet-card .card::after {
   position: absolute;
   content: "";
   top: calc(var(--card-height) / 6);
@@ -564,6 +566,9 @@ body main .perso #container-content .projet-container .projet-card .card::after 
   transition: opacity 0.5s;
   animation: spin 2.5s linear infinite;
 }
+body .perso #container-content .projet-container .projet-card .card .modal-content {
+  visibility: hidden;
+}
 @keyframes spin {
   0% {
     --rotate: 0deg;
@@ -575,11 +580,12 @@ body main .perso #container-content .projet-container .projet-card .card::after 
     --rotate: 360deg;
   }
 }
-body main .perso #container-content .projet-container .projet-card img {
+body .perso #container-content .projet-container .projet-card img {
   padding: 10px;
   width: 100%;
 }
-body .modal {
+
+.modal {
   background: url(../img/image-projet\ porfolio.png);
   position: absolute;
   z-index: 9999;
@@ -590,26 +596,50 @@ body .modal {
   max-width: 80%;
   height: 100%;
   max-height: 80%;
-  top: 50%;
-  left: 50%;
+  top: 10%;
+  left: 10%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 12px 28px 0px rgba(140, 149, 159, 0.3);
+  transition: all 0.5s ease-in-out;
+  animation-name: modal-open;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+  text-align: center;
+}
+@keyframes modal-open {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 @media screen and (max-width: 900px) {
-  body .modal {
-    max-width: 100%;
-    max-height: 100%;
+  .modal {
     bottom: 0;
   }
 }
-body .modal::-webkit-scrollbar {
+.modal::-webkit-scrollbar {
   background-color: rgba(243, 12, 12, 0);
   display: none;
 }
-body .modal::-webkit-scrollbar-corner {
+.modal::-webkit-scrollbar-corner {
   display: none;
 }
-body .modal .close {
+.modal .modal-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #ffffff;
+  visibility: visible;
+}
+.modal .modal-content .icon-close {
+  width: 100%;
+  top: 0;
+  position: sticky;
+  text-align: right;
+}
+.modal .modal-content .icon-close .close {
   background-color: #f30c0c;
   border-radius: 10px;
   right: 100%;
@@ -618,15 +648,10 @@ body .modal .close {
   text-align: center;
   position: sticky;
   color: #ffffff;
-  font-size: 5rem;
+  font-size: 2rem;
   cursor: pointer;
 }
-body .modal .modal-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-body .modal-icons {
+.modal .modal-icons {
   width: 100%;
   position: sticky;
   background: url(../img/image-projet\ porfolio.png);
@@ -638,6 +663,10 @@ body .modal-icons {
   align-items: center;
   margin: auto;
 }
-body .modal-icons .icon-img {
+.modal .modal-icons .retro-text {
+  font-family: retro Gaming;
+  font-size: 2rem;
+}
+.modal .modal-icons .icon-img {
   padding: 5px;
 }/*# sourceMappingURL=style.css.map */
