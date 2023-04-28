@@ -57,8 +57,8 @@ const phrases = [
     'HELLO',
     "JE M'appelle",
     'Karim\ Ryahi',
-    "Bienvenu",
-    'Sur\' mon Portfolio',
+    "Bienvenue",
+    'Sur\ mon Portfolio',
 
 ]
 
