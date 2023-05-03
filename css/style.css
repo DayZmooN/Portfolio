@@ -49,7 +49,6 @@ body header {
   z-index: 999;
 }
 body header #logo {
-  /* padding: 20px; */
   width: 70px;
 }
 body header #logo #rk {
@@ -84,7 +83,7 @@ body header nav ul li {
 }
 body header nav ul li a {
   font: 900;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: retro gaming;
   font-size: 1.4rem;
   color: #fff;
   text-decoration: none;
@@ -116,9 +115,7 @@ body main {
   transition: background-image 1.5s ease-in-out;
   overflow: hidden;
   position: relative;
-  /* Répéter l'image horizontalement */
   animation: bougerBackground 160s linear alternate infinite;
-  /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
   /* Définissez l'animation */
 }
 @media screen and (max-width: 900px) {
@@ -129,7 +126,6 @@ body main {
 @keyframes bougerBackground {
   0% {
     background-position: 0px 0px;
-    /* Position de départ */
   }
   25% {
     background-position: 100% 1000px;
@@ -612,7 +608,7 @@ body .perso #container-content .content-card .img-me {
 body .perso #container-content .projet-container {
   width: 100%;
   max-width: 500px;
-  height: 550px;
+  height: 490px;
   overflow-y: scroll;
   margin: 20px auto;
 }
@@ -641,7 +637,6 @@ body .perso #container-content .projet-container .projet-card .card {
   display: flex;
   color: rgba(88, 199, 250, 0);
   cursor: pointer;
-  height: 250px;
   width: 100%;
 }
 @media screen and (max-width: 900px) {
@@ -769,7 +764,6 @@ body .perso #container-content .projet-container .projet-card img {
 .modal .modal-content .icon-close .close {
   background-color: #f30c0c;
   border-radius: 10px;
-  right: 100%;
   top: 0%;
   width: 1px;
   text-align: center;
@@ -782,7 +776,6 @@ body .perso #container-content .projet-container .projet-card img {
   width: 100%;
   position: sticky;
   background: url(../img/image-projet\ porfolio.png);
-  bottom: 0;
   left: 50%;
   transform: translateX(-50%, -50%);
   text-align: center;

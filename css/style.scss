@@ -60,7 +60,6 @@ body {
         z-index: 999;
 
         #logo {
-            /* padding: 20px; */
             width: 70px;
 
             #rk {
@@ -108,7 +107,7 @@ body {
 
                     a {
                         font: 900;
-                        font-family: Arial, Helvetica, sans-serif;
+                        font-family: retro gaming;
                         font-size: 1.4rem;
                         color: #fff;
                         text-decoration: none;
@@ -116,15 +115,6 @@ body {
                         &:hover {
                             color: #3c67e3
                         }
-
-
-
-
-
-
-
-
-
                     }
                 }
 
@@ -162,9 +152,9 @@ body {
     }
 
 
+    // main
 
     main {
-        // background-image: url(../img/image-projet\ porfolio.png);
         width: 100%;
         perspective: 1000px;
         background-position: 0px 0px;
@@ -172,10 +162,7 @@ body {
         transition: background-image 1.5s ease-in-out;
         overflow: hidden;
         position: relative;
-        // transition: all 5s ease-in-out;
-        /* Répéter l'image horizontalement */
         animation: bougerBackground 160s linear alternate infinite;
-        /* Appliquer l'animation bougerBackground pendant 5 secondes en boucle */
 
         @media screen and (max-width:900px) {
             overflow: initial;
@@ -186,7 +173,6 @@ body {
         @keyframes bougerBackground {
             0% {
                 background-position: 0px 0px;
-                /* Position de départ */
             }
 
             25% {
@@ -943,7 +929,7 @@ body {
             .projet-container {
                 width: 100%;
                 max-width: 500px;
-                height: 550px;
+                height: 490px;
                 overflow-y: scroll;
                 margin: 20px auto;
 
@@ -980,7 +966,6 @@ body {
                         display: flex;
                         color: rgba(88, 199, 250, 0%);
                         cursor: pointer;
-                        height: 250px;
                         width: 100%;
 
                         @media screen and (max-width:900px) {
@@ -1137,7 +1122,6 @@ body {
             .close {
                 background-color: #f30c0c;
                 border-radius: 10px;
-                right: 100%;
                 top: 0%;
                 width: 1px;
                 text-align: center;
@@ -1157,7 +1141,6 @@ body {
         width: 100%;
         position: sticky;
         background: url(../img/image-projet\ porfolio.png);
-        bottom: 0;
         left: 50%;
         transform: translateX(-50%, -50%);
         text-align: center;
