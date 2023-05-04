@@ -11,6 +11,12 @@
 
 h2 {
   font-family: retro gaming;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 900px) {
+  h2 {
+    font-size: 1rem;
+  }
 }
 
 body {
@@ -19,22 +25,6 @@ body {
   background-repeat: repeat;
   transition: background-image 1.5s ease-in-out;
   animation: bougerBackground 160s linear alternate infinite;
-}
-@keyframes bougerBackground {
-  0% {
-    background-position: 0px 0px;
-    /* Position de départ */
-  }
-  25% {
-    background-position: 100% 1000px;
-  }
-  50% {
-    background-position: 100% 1500px;
-  }
-  100% {
-    background-position: 100% 1000px;
-    /* Position finale */
-  }
 }
 @media screen and (max-width: 900px) {
   body {
@@ -139,17 +129,22 @@ body main {
   }
 }
 body main #container-particule {
-  background: #111;
   position: relative;
-  left: 50%;
-  top: 0%;
-  transform: translate(-50%, -50%);
   width: 100%;
 }
 body main #container-particule canvas {
-  position: absolute;
   width: 100%;
-  margin-top: -18px;
+  height: 100%;
+}
+@media screen and (max-width: 1250px) {
+  body main #container-particule canvas {
+    margin-top: 100px;
+  }
+}
+@media screen and (max-width: 900px) {
+  body main #container-particule canvas {
+    margin-top: 0px;
+  }
 }
 body main .presentation {
   text-align: center;
@@ -157,6 +152,7 @@ body main .presentation {
   transform: translateY(0px);
   width: 100%;
   display: flex;
+  height: 90px;
   margin: 20px auto;
   align-items: center;
   justify-content: center;
@@ -196,16 +192,15 @@ body main .presentation .first-text:nth-child(4) {
   animation-delay: 1.7s;
 }
 body .perso-container {
-  width: 50px;
   position: absolute;
-  top: 60%;
+  bottom: 50%;
   z-index: 999;
+  display: inline;
 }
 @media screen and (max-width: 900px) {
   body .perso-container {
-    width: 70px;
     position: sticky;
-    top: 50%;
+    display: inline;
     left: 0;
   }
 }
@@ -217,12 +212,12 @@ body .perso-container img:hover {
 }
 body .perso-container .container-social {
   width: 100%;
-  display: flex;
+  display: inline-grid;
   justify-content: left;
   flex-direction: column;
   align-items: left;
   position: sticky;
-  top: 400px;
+  top: 20%;
   gap: 20px;
 }
 body .perso-container .container-social #perso-img,
@@ -414,9 +409,16 @@ body .perso #container-content .skills {
   text-align: center;
   perspective: 1000px;
 }
+@media screen and (max-width: 1300px) {
+  body .perso #container-content .skills {
+    margin-left: 85px;
+    width: 100%;
+  }
+}
 @media screen and (max-width: 900px) {
   body .perso #container-content .skills {
-    margin: 0 auto;
+    margin-left: 0px;
+    width: 100%;
   }
 }
 body .perso #container-content .skills .letter-skills {
@@ -431,33 +433,40 @@ body .perso #container-content .skills .letter-skills {
 }
 @media screen and (max-width: 1200px) {
   body .perso #container-content .skills .letter-skills {
-    width: 180px;
-    font-size: 3rem;
+    font-size: 1.6rem;
   }
 }
 body .perso #container-content .skills .skills-container {
   width: 100%;
   font-family: retro gaming;
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
   max-width: 700px;
 }
 body .perso #container-content .skills .skills-container .letter-skills {
-  width: 200px;
+  max-width: 170px;
+  width: 100%;
   margin: 0 auto;
   padding: 20px;
-  font-size: 2rem;
+  font-size: 1.5rem;
   animation: po 10s ease-in-out infinite;
   box-shadow: 4px white;
   font-family: retro gaming;
 }
 @media screen and (max-width: 1300px) {
   body .perso #container-content .skills .skills-container .letter-skills {
-    font-size: 2rem;
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 1220px) {
+  body .perso #container-content .skills .skills-container .letter-skills {
+    font-size: 1.4rem;
+    width: auto;
   }
 }
 body .perso #container-content .skills .skills-container .material-container {
   margin: auto;
+  width: 100%;
 }
 @keyframes po {
   0% {
@@ -522,6 +531,17 @@ body .perso #container-content .content-card .back-card {
 body .perso #container-content .content-card .back-card .messages {
   margin: 0 auto;
   max-width: 300px;
+}
+body .perso #container-content .content-card .back-card .messages .first-text {
+  width: 100%;
+}
+body .perso #container-content .content-card .back-card .messages .first-text .me-text {
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 900px) {
+  body .perso #container-content .content-card .back-card .messages .first-text .me-text {
+    font-size: 1rem;
+  }
 }
 body .perso #container-content .content-card .option-text {
   padding: 10px;
@@ -791,6 +811,11 @@ body .perso #container-content .projet-container .projet-card img {
   font-family: retro Gaming;
   font-size: 2rem;
 }
+@media screen and (max-width: 900px) {
+  .modal .modal-icons .language .retro-text {
+    font-size: 1.2rem;
+  }
+}
 .modal .modal-icons .icon-img {
   padding: 5px;
 }
@@ -800,6 +825,11 @@ body .perso #container-content .projet-container .projet-card img {
   padding: 5px;
   font-family: retro gaming;
   animation: animate 33s linear infinite;
+}
+@media screen and (max-width: 900px) {
+  .modal .modal-icons .p-language {
+    font-size: 1rem;
+  }
 }
 .modal .modal-icons span {
   font-family: retro gaming;
@@ -814,6 +844,19 @@ body .perso #container-content .projet-container .projet-card img {
   padding: 10px;
   width: 100%;
   margin: 30px auto;
+}
+.modal .role-projet .description-projet .retro-text {
+  font-size: 2rem;
+}
+@media screen and (max-width: 900px) {
+  .modal .role-projet .description-projet .retro-text {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal .role-projet .description-projet .retro-text {
+    font-size: 1.2rem;
+  }
 }
 .modal .link-website {
   width: 100%;

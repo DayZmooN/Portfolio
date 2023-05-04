@@ -2,7 +2,6 @@ const cards = document.getElementsByClassName('card');
 const body = document.querySelector('body');
 const modalIcons = document.getElementsByClassName('modal-icons');
 
-
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function () {
         createModal(this);
@@ -10,8 +9,6 @@ for (let i = 0; i < cards.length; i++) {
         if (window.innerWidth <= 900) {
             window.scrollTo(0, 0);
         }
-
-
     });
 }
 
@@ -19,17 +16,26 @@ function createModal(cardElement) {
     const modal = document.createElement('div');
     modal.classList.add('modal');
     modal.innerHTML = `
-        
         <div class="modal-content">
-        <div class="icon-close">
-        <span class="close">&times</span>
-        </div>
+            <div class="icon-close">
+                <span class="close">&times</span>
+            </div>
             ${cardElement.innerHTML}
-            
         </div>
-  
-        
     `;
+
+    // Ajouter un gestionnaire d'événements pour fermer la modal lorsqu'un clic est effectué en dehors de celle-ci
+    modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.remove();
+            if (window.innerWidth <= 900) {
+                body.style.overflow = 'auto';
+                window.scrollTo(100)
+            }
+        }
+    });
+
+
     const closeBtn = modal.querySelector('.close');
     closeBtn.addEventListener('click', function () {
         modal.remove();
@@ -47,5 +53,6 @@ function createModal(cardElement) {
         const scrollY = window.scrollY || window.pageYOffset;
         modalContent.style.top = scrollY + 'px';
     });
+
 
 }
