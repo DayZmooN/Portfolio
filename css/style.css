@@ -551,9 +551,9 @@ body .perso #container-content .content-card .back-card {
   top: 0;
   z-index: 400;
   background-image: linear-gradient(115deg, transparent 0%, rgb(0, 231, 255) 30%, rgb(255, 0, 231) 70%, transparent 100%);
-  animation: holoSparkle 10s ease infinite;
+  animation: holo 10s ease infinite;
 }
-@keyframes holoSparkle {
+@keyframes holo {
   0%, 5% {
     opacity: 0.8;
     background-position: 0% 0%;

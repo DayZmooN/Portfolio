@@ -872,11 +872,11 @@ body {
                             rgb(0, 231, 255) 30%,
                             rgb(255, 0, 231) 70%,
                             transparent 100%);
-                    animation: holoSparkle 10s ease infinite;
+                    animation: holo 10s ease infinite;
 
 
 
-                    @keyframes holoSparkle {
+                    @keyframes holo {
 
                         0%,
                         5% {
