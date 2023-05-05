@@ -790,6 +790,8 @@ body {
                 cursor: pointer;
 
 
+
+
                 &:hover {
                     width: 100%;
                     max-width: 700px;
@@ -804,11 +806,32 @@ body {
                     width: 100%;
                     height: 450px;
                     background-size: contain;
+                    animation: rotate 15s ease-in-out infinite;
+                    // transition: all .6s ease-in-out;
+
 
                     img {
                         display: none;
                     }
+
                 }
+
+                @keyframes rotate {
+
+                    0%,
+                    10% {
+                        transform: rotate3d(0, 0, 0, -20deg);
+                    }
+
+                    20% {
+                        transform: rotate3d(1, 1, 0.2, 30deg);
+                    }
+
+                    100% {
+                        transform: rotate3d(0, 0, 0, -20deg);
+                    }
+                }
+
 
                 .front-card,
                 .back-card {
@@ -830,9 +853,61 @@ body {
                     color: white;
                     font-size: 1rem;
                     width: 100%;
+                    letter-spacing: 2px;
                     margin: 0 auto;
                     transform: rotateY(180deg);
                     text-align: center;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: pre-wrap;
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    z-index: 400;
+                    background-image: linear-gradient(115deg,
+                            transparent 0%,
+                            rgb(0, 231, 255) 30%,
+                            rgb(255, 0, 231) 70%,
+                            transparent 100%);
+                    animation: holoSparkle 10s ease infinite;
+
+
+
+                    @keyframes holoSparkle {
+
+                        0%,
+                        5% {
+                            opacity: 0.8;
+                            background-position: 0% 0%;
+                        }
+
+
+                        10% {
+                            opacity: 0.85;
+                            background-position: 0% 0%;
+
+                        }
+
+
+
+                        20% {
+
+                            background-position: 100% 100%;
+                            opacity: 1;
+                        }
+
+                        55% {
+                            background-position: 0% 0%;
+
+                        }
+
+                        100% {
+                            opacity: 0.8;
+                        }
+                    }
 
 
                     .messages {
@@ -844,6 +919,10 @@ body {
 
                             .me-text {
                                 font-size: 1.5rem;
+                                letter-spacing: 2px;
+                                width: 90%;
+                                height: 50px;
+                                overflow: hidden;
 
                                 @media screen and (max-width:900px) {
                                     font-size: 1rem;
@@ -861,10 +940,14 @@ body {
                 }
 
                 .option-text {
-                    padding: 10px;
-                    text-align: right;
+                    padding: 1px;
+                    text-align: left;
+                    right: 5px;
+                    position: absolute;
 
                     bottom: 10px;
+
+
 
                     button {
                         width: 100px;
@@ -1095,7 +1178,12 @@ body {
 }
 
 .modal {
-    background: url(../img/image-projet\ porfolio.png);
+    // background: url(../img/image-projet\ porfolio.png);
+    background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+    background-position: center;
+    background-size: 100%;
+    opacity: 1;
+    z-index: 2;
     position: absolute;
     z-index: 9999;
     background-color: rgba(0, 0, 0, 0.8);
@@ -1126,6 +1214,49 @@ body {
         }
     }
 
+    // .front-card {
+    //     background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+    //     background-position: center;
+    //     background-size: 180%;
+    //     opacity: 1;
+    //     z-index: 2;
+    //     animation: holoSparkle 15s ease infinite;
+    // }
+
+    .back-card {
+
+        // background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/13471/sparkles.gif");
+        // background-position: center;
+        // background-size: 180%;
+        // mix-blend-mode: color-dodge;
+        // opacity: 1;
+        // z-index: 2;
+        // animation: holoSparkle 15s ease infinite;
+        .messages {
+            margin: 20px auto;
+
+            .first-message {
+                width: 90%;
+                margin: 0 auto;
+
+                .me-text {
+                    font-size: 1.6rem;
+                    letter-spacing: 2px;
+                    width: 100%;
+                    font: 900;
+
+
+                }
+
+
+
+
+
+            }
+        }
+
+
+    }
 
 
     @media screen and (max-width:900px) {
@@ -1195,6 +1326,12 @@ body {
         .language {
             width: 100%;
             padding: 15px;
+
+            picture {
+                img {
+                    height: 200px;
+                }
+            }
 
             .retro-text {
                 font-family: retro Gaming;

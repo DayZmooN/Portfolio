@@ -1,6 +1,5 @@
 const cards = document.getElementsByClassName('card');
 const body = document.querySelector('body');
-const modalIcons = document.getElementsByClassName('modal-icons');
 
 for (let i = 0; i < cards.length; i++) {
     cards[i].addEventListener('click', function () {
@@ -24,23 +23,18 @@ function createModal(cardElement) {
         </div>
     `;
 
-    // Ajouter un gestionnaire d'événements pour fermer la modal lorsqu'un clic est effectué en dehors de celle-ci
-    modal.addEventListener('click', function (event) {
-        if (event.target === modal) {
-            modal.remove();
-            if (window.innerWidth <= 900) {
-                body.style.overflow = 'auto';
-                window.scrollTo(100)
-            }
+    body.addEventListener('click', function (event) {
+        if (event.target === body && modal.parentElement) {
+            modal.parentElement.removeChild(modal);
+            body.style.overflow = 'auto';
         }
     });
-
 
     const closeBtn = modal.querySelector('.close');
     closeBtn.addEventListener('click', function () {
         modal.remove();
+        body.style.overflow = 'auto';
         if (window.innerWidth <= 900) {
-            body.style.overflow = 'auto';
             window.scrollTo(100)
         }
     });
@@ -53,6 +47,4 @@ function createModal(cardElement) {
         const scrollY = window.scrollY || window.pageYOffset;
         modalContent.style.top = scrollY + 'px';
     });
-
-
 }
