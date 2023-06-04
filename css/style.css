@@ -876,7 +876,7 @@ body .perso #container-content .projet-container .projet-card img {
   padding: 15px;
 }
 .modal .modal-icons .language picture img {
-  height: 200px;
+  height: auto;
 }
 .modal .modal-icons .language .retro-text {
   font-family: retro Gaming;
