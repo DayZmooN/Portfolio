@@ -1,4 +1,4 @@
-const card = document.querySelector(".content-card");
+const card = document.getElementsByClassName("content-card");
 
 const updatePointerPosition = ({ x, y }) => {
     card.classList.remove('rotate');
@@ -17,3 +17,6 @@ card.addEventListener("pointerleave", () => {
     card.style.setProperty("--ratio-x", 0);
     card.style.setProperty("--ratio-y", 0);
 });
+
+
+

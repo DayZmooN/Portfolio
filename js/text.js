@@ -1,3 +1,5 @@
+import featureInternal from 'es-module-package/features/private-internal/m.js';
+
 class TextScramble {
     constructor(el) {
         this.el = el
