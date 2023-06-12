@@ -876,6 +876,7 @@ body .perso #container-content .projet-container .projet-card img {
   padding: 15px;
 }
 .modal .modal-icons .language picture img {
+  width: 100%;
   height: 200px;
 }
 .modal .modal-icons .language .retro-text {
